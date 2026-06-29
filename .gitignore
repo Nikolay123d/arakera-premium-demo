@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.firebaserc
+*.log
+firebase-debug.log
+firebase-debug.*.log
+docs/source-fex/
+docs/screenshots/
+.codex-remote-attachments/
+*_REPORT.txt

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARAKERA GROUP — Project Coordination & Integration Hub</title>
+  <meta name="description" content="ARAKERA GROUP координує проєкти, людей, партнерів і ресурси в Центральній Європі. Premium demo website для проектної інтеграції.">
+  <meta name="theme-color" content="#0b1724">
+  <meta property="og:title" content="ARAKERA GROUP — Project Coordination & Integration Hub">
+  <meta property="og:description" content="Spojujeme správně projekty se správnými lidmi. Координація, інтеграція та розвиток проєктів у Центральній Європі.">
+  <meta property="og:image" content="assets/images/corporate-tower.jpg">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-live="polite">
+    <div class="preloader__frame">
+      <div class="preloader__mark">AR</div>
+      <p class="preloader__eyebrow">ARAKERA GROUP</p>
+      <h1>Project Coordination Hub</h1>
+      <p>Готуємо відеопрезентацію проєкту...</p>
+      <div class="preloader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="ARAKERA home">
+      <span class="brand__mark">A</span>
+      <span class="brand__text">ARAKERA <small>GROUP</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <button type="button" data-open-panel="system">Система</button>
+      <button type="button" data-open-panel="resources">Ресурси</button>
+      <button type="button" data-open-panel="projects">Проєкти</button>
+      <button type="button" data-open-panel="partners">Партнери</button>
+      <button type="button" data-open-panel="geo">Географія</button>
+      <button type="button" data-scroll="#production">Backend</button>
+    </nav>
+    <div class="header-actions">
+      <button class="ghost-action" type="button" data-open-panel="contact">Зв'язок</button>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__head">
+      <span>ARAKERA GROUP</span>
+      <button type="button" id="menuClose" aria-label="Закрити меню">×</button>
+    </div>
+    <div class="mobile-menu__links">
+      <button type="button" data-open-panel="system">Система</button>
+      <button type="button" data-open-panel="resources">Ресурси</button>
+      <button type="button" data-open-panel="projects">Проєкти</button>
+      <button type="button" data-open-panel="partners">Партнери</button>
+      <button type="button" data-open-panel="geo">Географія</button>
+      <button type="button" data-scroll="#production">Backend</button>
+      <button type="button" data-open-panel="contact">Зв'язок</button>
+    </div>
+    <div class="mobile-menu__cta">
+      <button class="btn btn--gold" type="button" data-open-modal="project">Подати проєкт</button>
+      <button class="btn btn--soft" type="button" data-open-modal="login">Увійти в систему</button>
+    </div>
+  </nav>
+
+  <button class="floating-menu-button" id="floatingMenuButton" type="button" aria-label="Відкрити меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <main id="top">
+    <section class="hero" id="hero" aria-label="ARAKERA hero">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-prague-office-poster.jpg">
+        <source src="assets/videos/hero-prague-office.mp4" type="video/mp4">
+      </video>
+      <div class="hero__fallback" aria-hidden="true"></div>
+      <div class="hero__overlay"></div>
+      <button class="scroll-cue" type="button" data-scroll="#message" aria-label="Прокрутити до змісту">
+        <span class="scroll-cue__finger" aria-hidden="true"></span>
+        <span class="scroll-cue__text">Листайте вниз</span>
+      </button>
+    </section>
+
+    <section class="hero-message section reveal" id="message" data-reveal="up">
+      <div class="wrap hero-message__grid">
+        <div class="hero-message__copy">
+          <p class="eyebrow">ARAKERA GROUP · Central Europe</p>
+          <h1 data-kinetic-text>PROJECT COORDINATION &amp; INTEGRATION HUB</h1>
+          <p class="hero__slogan" data-kinetic-text>SPOJUJEME SPRÁVNĚ PROJEKTY SE SPRÁVNÝMI LIDMI</p>
+          <p class="hero__copy" data-kinetic-text>ARAKERA допомагає проєктам пройти шлях від першої ідеї до зрозумілої структури: ресурси, люди, партнери, відповідальність і рух до результату.</p>
+          <div class="signal-phrases" aria-label="Ключові акценти">
+            <span>ресурси</span>
+            <span>люди</span>
+            <span>партнери</span>
+            <span>відповідальність</span>
+            <span>результат</span>
+          </div>
+          <div class="hero__actions">
+            <button class="btn btn--gold" type="button" data-open-modal="login">УВІЙТИ В СИСТЕМУ</button>
+            <button class="btn btn--glass" type="button" data-open-modal="project">ПОДАТИ ПРОЄКТ</button>
+          </div>
+        </div>
+        <aside class="hero-message__panel">
+          <span>Demo system preview</span>
+          <strong>Відео створює атмосферу. Нижче сайт пояснює структуру, дії та шлях до заявки.</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="intro section" id="intro">
+      <div class="wrap intro__grid">
+        <div>
+          <p class="eyebrow">не просто сайт, а вхід у систему</p>
+          <h2>Проєкт має бути зрозумілим до того, як у нього входять люди, ресурси та гроші.</h2>
+        </div>
+        <div class="intro__panel">
+          <p>ARAKERA структурує запит, визначає потрібні ролі, збирає контекст і допомагає рухати проєкт без хаосу між власником, виконавцями, партнерами та інвесторами.</p>
+          <div class="mini-actions">
+            <button type="button" data-open-panel="system">Як працює система</button>
+            <button type="button" data-open-modal="contact">Швидкий зв'язок</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="system section" id="system">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">система координації</p>
+          <h2>Ведемо проєкт через ясні етапи, а не через нескінченні домовленості.</h2>
+          <p>Кожен крок має своє питання: що потрібно, хто відповідає, які ресурси залучаються і що вважається наступним результатом.</p>
+        </div>
+        <div class="stage-grid">
+          <article class="stage-card reveal">
+            <span>01</span>
+            <h3>Вхід запиту</h3>
+            <p>Фіксуємо ціль, стан проєкту, терміни, обмеження і перший пріоритет.</p>
+          </article>
+          <article class="stage-card reveal">
+            <span>02</span>
+            <h3>Структура</h3>
+            <p>Розкладаємо проєкт на ресурси, ролі, ризики, документи і точки рішення.</p>
+          </article>
+          <article class="stage-card reveal">
+            <span>03</span>
+            <h3>Підбір людей</h3>
+            <p>Знаходимо потрібних виконавців, партнерів або спеціалістів під конкретну задачу.</p>
+          </article>
+          <article class="stage-card reveal">
+            <span>04</span>
+            <h3>Супровід руху</h3>
+            <p>Тримаємо фокус на наступному кроці: домовленості, контроль, зв'язок, результат.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources section" id="resources">
+      <div class="wrap">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow">чотири ресурси ARAKERA</p>
+            <h2>Сильний проєкт тримається не на одній ідеї, а на правильній комбінації ресурсів.</h2>
+          </div>
+          <button class="btn btn--line" type="button" data-open-panel="resources">Відкрити ресурсну модель</button>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card reveal">
+            <img src="assets/images/business-coordination.jpg" alt="Команда обговорює проєкт в офісі" loading="lazy">
+            <div><span>Projects</span><h3>Проєкти</h3><p>Вхід, оцінка, структура, пріоритети та дорожня карта.</p></div>
+          </article>
+          <article class="resource-card reveal">
+            <img src="assets/images/partnership-meeting.jpg" alt="Ділова зустріч партнерів" loading="lazy">
+            <div><span>People</span><h3>Люди</h3><p>Власники, спеціалісти, команди, менеджери та локальні контакти.</p></div>
+          </article>
+          <article class="resource-card reveal">
+            <img src="assets/images/construction-renovation.jpg" alt="Будівництво та реконструкція" loading="lazy">
+            <div><span>Implementation</span><h3>Виконання</h3><p>Будівництво, реконструкція, технічні системи, логістика та контроль.</p></div>
+          </article>
+          <article class="resource-card reveal">
+            <img src="assets/images/smart-technology.jpg" alt="Технологічна плата крупним планом" loading="lazy">
+            <div><span>Capital</span><h3>Капітал</h3><p>Партнерства, стратегічний розвиток і підготовка до масштабування.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cinema section" id="cinema">
+      <div class="wrap cinema__grid">
+        <div class="cinema__copy">
+          <p class="eyebrow">проєкт має рухатися</p>
+          <h2>Координація починається там, де у всіх учасників є одна картина.</h2>
+          <p>Ми збираємо контекст, узгоджуємо ролі і перетворюємо складний запит на послідовність рішень. Це зменшує хаос, прискорює комунікацію і робить наступний крок очевидним.</p>
+          <ul>
+            <li>Оцінка та структуризація запиту</li>
+            <li>Підготовка партнерської презентації</li>
+            <li>Координація людей, техніки і строків</li>
+          </ul>
+          <button class="btn btn--gold" type="button" data-open-modal="project">Подати проєкт</button>
+        </div>
+        <div class="cinema__video reveal">
+          <video id="processVideo" muted loop playsinline preload="none" poster="assets/images/project-planning-poster.jpg">
+            <source src="assets/videos/project-planning-team.mp4" type="video/mp4">
+          </video>
+          <button class="video-control" type="button" id="videoToggle">Відео / пауза</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="wrap">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow">приклади напрямків</p>
+            <h2>Проєкти, де ARAKERA може бути інтеграційним центром.</h2>
+          </div>
+          <p class="section-note">Demo cases. Реальні кейси і цифри додаються після підтвердження клієнтом.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <img src="assets/images/door-access-control.jpg" alt="Система контролю доступу на дверях" loading="lazy">
+            <div class="project-card__body">
+              <span class="badge">Demo case · Security</span>
+              <h3>Інтеграція системи контролю доступу</h3>
+              <dl>
+                <div><dt>Сфера</dt><dd>Access control / smart systems</dd></div>
+                <div><dt>Роль ARAKERA</dt><dd>Координація постачальника, монтажу та власника об'єкта.</dd></div>
+                <div><dt>Результат</dt><dd>Зрозумілий план інтеграції без втрати відповідальності між сторонами.</dd></div>
+              </dl>
+              <button type="button" data-project="access">Відкрити кейс</button>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/images/construction-renovation.jpg" alt="Будівельний об'єкт і технічний план" loading="lazy">
+            <div class="project-card__body">
+              <span class="badge">Demo case · Construction</span>
+              <h3>Реконструкція житлового об'єкта</h3>
+              <dl>
+                <div><dt>Сфера</dt><dd>Renovation / construction</dd></div>
+                <div><dt>Роль ARAKERA</dt><dd>Збір потреб, підбір виконавців, контроль етапів і комунікації.</dd></div>
+                <div><dt>Результат</dt><dd>Проєкт розбитий на етапи, ресурси та відповідальних.</dd></div>
+              </dl>
+              <button type="button" data-project="renovation">Відкрити кейс</button>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/images/smart-technology.jpg" alt="Електроніка та smart building технології" loading="lazy">
+            <div class="project-card__body">
+              <span class="badge">Demo case · Technology</span>
+              <h3>Smart building / automation project</h3>
+              <dl>
+                <div><dt>Сфера</dt><dd>Automation / infrastructure</dd></div>
+                <div><dt>Роль ARAKERA</dt><dd>Переклад бізнес-задачі в технічну карту впровадження.</dd></div>
+                <div><dt>Результат</dt><dd>Учасники бачать, що робиться зараз і що потрібно для запуску.</dd></div>
+              </dl>
+              <button type="button" data-project="smart">Відкрити кейс</button>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <img src="assets/images/logistics-operations.jpg" alt="Логістичний склад і операції" loading="lazy">
+            <div class="project-card__body">
+              <span class="badge">Demo case · Operations</span>
+              <h3>Personnel / logistics coordination</h3>
+              <dl>
+                <div><dt>Сфера</dt><dd>Logistics / personnel</dd></div>
+                <div><dt>Роль ARAKERA</dt><dd>Синхронізація людей, задач і доступності ресурсів.</dd></div>
+                <div><dt>Результат</dt><dd>Менше ручного хаосу, більше прозорості в операційному русі.</dd></div>
+              </dl>
+              <button type="button" data-project="logistics">Відкрити кейс</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why section" id="why">
+      <div class="wrap why__grid">
+        <div>
+          <p class="eyebrow">чому обирають ARAKERA</p>
+          <h2>Ми не замінюємо власника проєкту. Ми створюємо систему, в якій власник краще бачить рішення.</h2>
+          <p>Цінність ARAKERA у тому, що складний проєкт не зависає між людьми. Його переводять у ясну структуру, де видно наступні дії.</p>
+        </div>
+        <div class="trust-grid">
+          <article><span>01</span><h3>Без хаосу</h3><p>Кожна задача має контекст, відповідального і наступний крок.</p></article>
+          <article><span>02</span><h3>Без випадкових людей</h3><p>Ресурси підбираються під запит, а не “хто перший відповів”.</p></article>
+          <article><span>03</span><h3>Без темних зон</h3><p>Ризики, терміни і відкриті питання фіксуються до старту руху.</p></article>
+          <article><span>04</span><h3>З фокусом на результат</h3><p>Координація веде до дії, а не до нескінченних презентацій.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners section" id="partners">
+      <div class="wrap partners__grid">
+        <div class="partners__media reveal">
+          <img src="assets/images/partnership-meeting.jpg" alt="Партнерська зустріч і робоча координація" loading="lazy">
+          <div class="partners__caption">
+            <span>Partnership layer</span>
+            <strong>Власник проєкту не має шукати всіх учасників окремо.</strong>
+          </div>
+        </div>
+        <div class="partners__copy">
+          <p class="eyebrow">партнерський контур</p>
+          <h2>Ми підключаємо людей тоді, коли зрозуміло, навіщо вони потрібні.</h2>
+          <p>Це важлива різниця. ARAKERA не створює випадкові знайомства, а готує контекст: що потрібно від партнера, які питання відкриті, який наступний крок і як виміряти прогрес.</p>
+          <div class="partners__list">
+            <article><span>01</span><p>Власники і ініціатори проєктів</p></article>
+            <article><span>02</span><p>Технічні та операційні фахівці</p></article>
+            <article><span>03</span><p>Підрядники, інтегратори, локальні команди</p></article>
+            <article><span>04</span><p>Стратегічні партнери і капітал</p></article>
+          </div>
+          <button class="btn btn--line" type="button" data-open-panel="partners">Подивитись модель партнерства</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="geo section" id="geo">
+      <div class="wrap geo__grid">
+        <div class="geo__copy">
+          <p class="eyebrow">географія діяльності</p>
+          <h2>Центральна Європа як робоча зона для партнерств, людей і реалізації.</h2>
+          <p>Карта показує demo-напрямки роботи: Чехія, Словаччина, Австрія, Німеччина і Польща. Після підтвердження бізнес-моделі географію можна деталізувати під реальні офіси, партнерів або проєкти.</p>
+          <button class="btn btn--line" type="button" data-open-panel="geo">Відкрити карту</button>
+        </div>
+        <div class="map-card reveal" aria-label="Карта Центральної Європи">
+          <svg viewBox="0 0 700 470" role="img" aria-labelledby="mapTitle">
+            <title id="mapTitle">Custom map of Central Europe</title>
+            <defs>
+              <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path class="country" d="M102 88 228 54 314 100 286 182 198 210 110 170Z"/>
+            <path class="country active" d="M262 190 354 158 430 206 400 278 294 284 238 236Z"/>
+            <path class="country active" d="M422 220 504 204 584 256 548 316 456 304Z"/>
+            <path class="country active" d="M236 290 396 292 458 356 358 412 204 372Z"/>
+            <path class="country active" d="M398 88 586 76 626 182 502 204 430 174Z"/>
+            <path class="country" d="M96 216 210 226 194 372 84 340Z"/>
+            <g class="route">
+              <path d="M338 236 C390 198 454 190 516 260 S474 334 388 352 S314 286 338 236"/>
+            </g>
+            <g class="marker" style="--x:338;--y:236"><circle cx="338" cy="236" r="7"/><text x="350" y="231">Praha</text></g>
+            <g class="marker" style="--x:470;--y:264"><circle cx="470" cy="264" r="7"/><text x="482" y="260">Bratislava</text></g>
+            <g class="marker" style="--x:382;--y:352"><circle cx="382" cy="352" r="7"/><text x="394" y="348">Wien</text></g>
+            <g class="marker" style="--x:172;--y:138"><circle cx="172" cy="138" r="7"/><text x="184" y="134">Berlin</text></g>
+            <g class="marker" style="--x:518;--y:142"><circle cx="518" cy="142" r="7"/><text x="530" y="138">Warsaw</text></g>
+          </svg>
+          <div class="map-legend">
+            <span>Active demo zone</span>
+            <span>CZ · SK · AT · DE · PL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="production section" id="production">
+      <div class="wrap">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow">можна підключити після demo</p>
+            <h2>Сайт готовий не лише для презентації. Його можна швидко довести до робочої системи заявок.</h2>
+          </div>
+          <p class="section-note">Цей блок показує можливості для клієнта під час демонстрації. У production він замінюється на узгоджений текст, тарифи та реальні умови сервісу.</p>
+        </div>
+        <div class="production-grid">
+          <article class="production-card reveal" data-reveal="left">
+            <img src="assets/images/access-control.jpg" alt="Контроль доступу та цифрова система" loading="lazy">
+            <span>01 · заявки</span>
+            <h3>Форма на Email + база заявок</h3>
+            <p>Клієнт отримує заявку на пошту, а копія може зберігатися в Firestore: ім'я, контакт, тип запиту, джерело кнопки і статус обробки.</p>
+          </article>
+          <article class="production-card reveal" data-reveal="up">
+            <img src="assets/images/smart-technology.jpg" alt="Технологічна система крупним планом" loading="lazy">
+            <span>02 · Firebase / Google Cloud</span>
+            <h3>Дешевий backend для старту</h3>
+            <p>Для малого обсягу можна почати з no-cost квот Firebase. Платні витрати з'являються при рості трафіку, Cloud Functions, файлах або складнішій логіці.</p>
+          </article>
+          <article class="production-card reveal" data-reveal="right">
+            <img src="assets/images/project-planning-poster.jpg" alt="Планування проєкту на столі" loading="lazy">
+            <span>03 · управління</span>
+            <h3>Міні-кабінет або CRM-таблиця</h3>
+            <p>Можна додати приватний перегляд заявок, статуси “новий / в роботі / закритий”, експорт у Google Sheets і повідомлення відповідальній людині.</p>
+          </article>
+        </div>
+        <div class="backend-offer reveal" data-reveal="up">
+          <div>
+            <p class="eyebrow">орієнтир по бюджету</p>
+            <h3>Стартова інтеграція backend: від 150 € одноразово.</h3>
+            <p>Для початку достатньо: email-заявки, база заявок, простий admin-view і бюджетні попередження. Щомісячно для невеликого сайту часто може бути 0 Kč або дуже мало, якщо залишатися в no-cost квотах. Реальний максимум не фіксується: він залежить від трафіку, файлів, кількості заявок і включених сервісів.</p>
+          </div>
+          <ul>
+            <li><strong>Базово:</strong> hosting/static + форма на email.</li>
+            <li><strong>Backend light:</strong> Firestore leads + Cloud Function + email provider.</li>
+            <li><strong>Контроль витрат:</strong> budget alerts у Google Cloud перед запуском.</li>
+          </ul>
+          <button class="btn btn--gold" type="button" data-open-modal="backend">Показати backend-план</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="connect section" id="connect">
+      <div class="wrap connect__grid">
+        <div class="connect__card">
+          <p class="eyebrow">залишити запит</p>
+          <h2>Опишіть проєкт коротко. Далі ми підкажемо, з чого почати.</h2>
+          <p>Форма працює в demo-режимі. Для реального запуску підключається email-доставка, Web3Forms/Formspree або Firebase endpoint з копією заявки в базі.</p>
+          <div class="contact-chips">
+            <button type="button" data-open-modal="contact">Швидкий зв'язок</button>
+            <button type="button" data-open-panel="contact">Контактні канали</button>
+          </div>
+        </div>
+        <form class="lead-form" id="leadForm" action="#" method="post">
+          <label>Ім'я<input name="name" autocomplete="name" required></label>
+          <label>Компанія<input name="company" autocomplete="organization"></label>
+          <label>Телефон або Email<input name="contact" autocomplete="email" required></label>
+          <label>Тип запиту<select name="type" required><option value="">Оберіть</option><option>Проєкт</option><option>Партнерство</option><option>Капітал / розвиток</option><option>Технічна інтеграція</option></select></label>
+          <label class="wide">Повідомлення<textarea name="message" rows="4" required placeholder="Коротко опишіть, чим саме ARAKERA може допомогти."></textarea></label>
+          <p class="form-note">Натискаючи кнопку, ви погоджуєтесь, що заявка є demo-повідомленням. Дані не відправляються назовні, поки не підключений endpoint.</p>
+          <button class="btn btn--gold wide" type="submit">Надіслати запит</button>
+          <output class="form-status" id="formStatus"></output>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <button class="sticky-cta__close" type="button" id="stickyClose" aria-label="Закрити">×</button>
+    <div>
+      <strong>Є проєкт або можливість?</strong>
+      <span>Отримайте перший зрозумілий крок.</span>
+    </div>
+    <button type="button" data-open-modal="project">Подати проєкт</button>
+    <button type="button" data-open-modal="contact">Швидкий зв'язок</button>
+  </aside>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" data-close-modal aria-label="Закрити">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="screen-panel" id="screenPanel" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="screen-panel__backdrop" data-close-panel></div>
+    <section class="screen-panel__body">
+      <button class="screen-panel__close" type="button" data-close-panel aria-label="Закрити">×</button>
+      <div id="screenContent"></div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a class="brand brand--footer" href="#top"><span class="brand__mark">A</span><span class="brand__text">ARAKERA <small>GROUP</small></span></a>
+        <p>Premium demo website. Контакти, юридичні дані та реальні кейси потрібно підтвердити перед production-запуском.</p>
+      </div>
+      <div>
+        <strong>Дії</strong>
+        <button type="button" data-open-modal="project">Подати проєкт</button>
+        <button type="button" data-open-modal="contact">Швидкий зв'язок</button>
+        <button type="button" data-open-modal="backend">Backend-план</button>
+      </div>
+      <div>
+        <strong>Demo contacts</strong>
+        <a href="mailto:info@arakera-group.com">info@arakera-group.com</a>
+        <a href="https://www.arakera-group.com" target="_blank" rel="noreferrer">www.arakera-group.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
