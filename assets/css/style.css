@@ -61,6 +61,7 @@ p{color:var(--muted);line-height:1.7}
   background:
     radial-gradient(circle at 50% 38%,rgba(210,181,111,.16),transparent 20rem),
     radial-gradient(circle at 70% 0%,rgba(78,125,160,.16),transparent 24rem),
+    url("../images/corporate-tower.jpg") center/cover no-repeat,
     linear-gradient(145deg,#050b12,#0a1724 56%,#12283d);
   overflow:hidden;
   transition:opacity .72s var(--ease),visibility .72s var(--ease),transform .82s var(--ease);
@@ -70,16 +71,16 @@ p{color:var(--muted);line-height:1.7}
   content:"";
   position:absolute;inset:-3%;
   background:url("../images/corporate-tower.jpg") center/cover no-repeat;
-  opacity:.42;
-  filter:saturate(.82) contrast(1.08) brightness(.72) blur(1.2px);
+  opacity:1;
+  filter:saturate(.92) contrast(1.08) brightness(.82);
   transform:scale(1.035);
 }
 .preloader::after{
   content:"";
   position:absolute;inset:0;
   background:
-    radial-gradient(circle at 50% 44%,rgba(210,181,111,.2),transparent 19rem),
-    linear-gradient(135deg,rgba(4,10,17,.84),rgba(10,24,37,.88) 55%,rgba(5,12,21,.95));
+    radial-gradient(circle at 50% 48%,rgba(6,15,24,.16),rgba(3,8,14,.32) 58%,rgba(3,8,14,.48) 100%),
+    linear-gradient(135deg,rgba(4,10,17,.16),rgba(10,24,37,.1) 48%,rgba(5,12,21,.2));
 }
 .preloader.is-hidden{opacity:0;visibility:hidden;transform:translateX(-105%)}
 .preloader__frame{
@@ -90,8 +91,8 @@ p{color:var(--muted);line-height:1.7}
   text-align:center;
   border:1px solid rgba(210,181,111,.26);
   border-radius:30px;
-  background:linear-gradient(145deg,rgba(16,35,56,.84),rgba(10,23,36,.76));
-  box-shadow:0 34px 110px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08);
+  background:linear-gradient(145deg,rgba(16,35,56,.88),rgba(10,23,36,.8));
+  box-shadow:0 34px 110px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1);
   backdrop-filter:blur(20px);
   transform:translateZ(0);
   transition:opacity .34s var(--ease),transform .34s var(--ease);
@@ -643,7 +644,7 @@ p{color:var(--muted);line-height:1.7}
   .brand__mark{width:42px;height:42px;border-radius:14px}
   .brand__text{font-size:13px;letter-spacing:.06em}
   .menu-button{width:46px;height:46px;flex-basis:46px;border-radius:15px}
-  .preloader__frame{width:min(340px,calc(100% - 28px));padding:24px 18px 21px;border-radius:26px;margin:auto}
+  .preloader__frame{width:min(304px,calc(100vw - 48px));max-width:calc(100vw - 48px);padding:24px 18px 21px;border-radius:26px;margin:auto}
   .preloader__mark{width:64px;height:64px;border-radius:22px}
   .preloader h1{font-size:24px}
   .preloader p:last-of-type{font-size:14px;margin-bottom:18px}

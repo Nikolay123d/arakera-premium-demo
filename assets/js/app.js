@@ -145,7 +145,7 @@ function primeHeroVideo() {
 
 function hidePreloader() {
   primeHeroVideo();
-  window.setTimeout(() => preloader?.classList.add("is-hidden"), 650);
+  window.setTimeout(() => preloader?.classList.add("is-hidden"), 1350);
   document.body.classList.remove("no-scroll");
 }
 
