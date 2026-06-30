@@ -1,6 +1,9 @@
 const qs = (sel, root = document) => root.querySelector(sel);
 const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
 
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (!window.location.hash) window.scrollTo(0, 0);
+
 const panelContent = {
   system: {
     eyebrow: "Система ARAKERA",
@@ -95,6 +98,7 @@ const header = qs("#siteHeader");
 const menu = qs("#mobileMenu");
 const menuButton = qs("#menuButton");
 const floatingMenuButton = qs("#floatingMenuButton");
+const mobileCornerMenu = qs("#mobileCornerMenu");
 const menuClose = qs("#menuClose");
 const modal = qs("#modal");
 const modalContent = qs("#modalContent");
@@ -105,8 +109,16 @@ const processVideo = qs("#processVideo");
 const videoToggle = qs("#videoToggle");
 const hero = qs("#hero");
 const heroVideo = qs("#heroVideo");
+const preloaderBg = qs("#preloaderBg");
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.body.classList.add("no-scroll");
+
+function markPreloaderImageReady() {
+  preloader?.classList.add("is-bg-ready");
+}
+if (preloaderBg?.complete) markPreloaderImageReady();
+else preloaderBg?.addEventListener("load", markPreloaderImageReady, { once: true });
 
 function prepareKineticText(el) {
   if (!el || el.dataset.kineticReady === "1") return;
@@ -143,18 +155,28 @@ function primeHeroVideo() {
   heroVideo.play().catch(() => {});
 }
 
+let preloaderHideQueued = false;
 function hidePreloader() {
+  if (preloaderHideQueued) return;
+  preloaderHideQueued = true;
   primeHeroVideo();
-  window.setTimeout(() => preloader?.classList.add("is-hidden"), 1350);
-  document.body.classList.remove("no-scroll");
+  window.setTimeout(() => {
+    preloader?.classList.add("is-hidden");
+    document.body.dataset.preloaderDone = "1";
+    window.setTimeout(() => {
+      if (!menu?.classList.contains("is-open") && !modal?.classList.contains("is-open") && !screenPanel?.classList.contains("is-open")) {
+        document.body.classList.remove("no-scroll");
+      }
+    }, 180);
+  }, 1100);
 }
 
 primeHeroVideo();
 document.addEventListener("visibilitychange", () => {
   if (!document.hidden) primeHeroVideo();
 });
-window.addEventListener("load", hidePreloader);
-window.setTimeout(hidePreloader, 2800);
+window.addEventListener("load", hidePreloader, { once: true });
+window.setTimeout(hidePreloader, 1200);
 
 function setHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -167,6 +189,7 @@ function openMenu() {
   menu?.setAttribute("aria-hidden", "false");
   menuButton?.setAttribute("aria-expanded", "true");
   floatingMenuButton?.setAttribute("aria-expanded", "true");
+  mobileCornerMenu?.setAttribute("aria-expanded", "true");
   document.body.classList.add("no-scroll");
 }
 
@@ -175,11 +198,13 @@ function closeMenu() {
   menu?.setAttribute("aria-hidden", "true");
   menuButton?.setAttribute("aria-expanded", "false");
   floatingMenuButton?.setAttribute("aria-expanded", "false");
+  mobileCornerMenu?.setAttribute("aria-expanded", "false");
   document.body.classList.remove("no-scroll");
 }
 
 menuButton?.addEventListener("click", openMenu);
 floatingMenuButton?.addEventListener("click", openMenu);
+mobileCornerMenu?.addEventListener("click", openMenu);
 menuClose?.addEventListener("click", closeMenu);
 
 qsa("[data-scroll]").forEach(btn => {
@@ -409,7 +434,8 @@ function setSticky() {
     return;
   }
   const scrolled = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
-  const shouldShow = scrolled > 0.4;
+  const passedIntro = window.scrollY > window.innerHeight * 1.35;
+  const shouldShow = document.body.dataset.preloaderDone === "1" && scrolled > 0.56 && passedIntro;
   sticky.classList.toggle("is-visible", shouldShow);
   sticky.setAttribute("aria-hidden", shouldShow ? "false" : "true");
 }

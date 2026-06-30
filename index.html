@@ -10,6 +10,8 @@
   <meta property="og:description" content="Spojujeme správně projekty se správnými lidmi. Координація, інтеграція та розвиток проєктів у Центральній Європі.">
   <meta property="og:image" content="assets/images/corporate-tower.jpg">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/images/corporate-tower.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero-prague-office-poster.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +19,7 @@
 </head>
 <body>
   <div class="preloader" id="preloader" aria-live="polite">
+    <img class="preloader__bg" id="preloaderBg" src="assets/images/corporate-tower.jpg" alt="" aria-hidden="true" decoding="sync" fetchpriority="high">
     <div class="preloader__frame">
       <div class="preloader__mark">AR</div>
       <p class="preloader__eyebrow">ARAKERA GROUP</p>
@@ -70,10 +73,13 @@
   <button class="floating-menu-button" id="floatingMenuButton" type="button" aria-label="Відкрити меню" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
+  <button class="mobile-corner-menu" id="mobileCornerMenu" type="button" aria-label="Відкрити меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 
   <main id="top">
     <section class="hero" id="hero" aria-label="ARAKERA hero">
-      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-prague-office-poster.jpg">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-prague-office-poster.jpg">
         <source src="assets/videos/hero-prague-office.mp4" type="video/mp4">
       </video>
       <div class="hero__fallback" aria-hidden="true"></div>
