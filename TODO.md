@@ -1,10 +1,10 @@
 # TODO Before Client Production
 
-- Replace demo cases with confirmed ARAKERA projects.
-- Add real contact channels.
-- Connect real form endpoint.
-- Replace placeholder `info@arakera-group.com` if needed.
-- Confirm legal/company footer content.
-- Create final OG image.
+- Confirm final recipient email and Web3Forms settings.
+- Confirm whether the temporary Web3Forms access key should remain or be replaced.
+- Confirm final Facebook / Messenger link.
+- Replace presentation case examples with confirmed ARAKERA project data if required.
+- Confirm legal/company footer text.
+- Create final branded OG image if needed.
 - Decide whether analytics/cookie banner is needed.
-- Compress media further if client hosting requires stricter page weight.
+- Connect optional backend/CRM only after the client confirms the required workflow.

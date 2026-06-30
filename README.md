@@ -1,88 +1,71 @@
-# ARAKERA GROUP — Premium Corporate Demo
+# ARAKERA GROUP — Screen Flow Presentation
 
-Static premium mini-site for ARAKERA GROUP.
+Static 8-screen premium presentation site for ARAKERA GROUP.
 
-## What Is Included
+## Included
 
-- fullscreen video hero with poster fallback;
-- polished header and fullscreen mobile menu;
-- separate overlay screens for system, resources, projects, partners, geography, and contact;
-- second cinematic video block;
-- project/demo case cards;
-- custom Central Europe SVG map;
-- smart sticky CTA after scroll;
-- quick contact and submit-project modals;
-- demo-safe form validation;
-- local media assets;
-- README and credits.
+- full-screen cinematic video/wallpaper entry screen;
+- 8 screen-flow sections with right-side navigation dots;
+- fullscreen menu and modal entry points;
+- project entry process screen;
+- four-resource system screen;
+- project movement map;
+- project cases;
+- partnerships screen;
+- Central Europe geography screen;
+- contact form connected through Web3Forms;
+- post-submit progress overlay;
+- request processing page with Facebook quick-contact CTA.
 
-## Project Structure
+## Structure
 
 ```text
 index.html
+request-processing.html
 assets/css/style.css
 assets/js/app.js
 assets/images/
 assets/videos/
 assets/icons/favicon.svg
-docs/source-fex/
+backend-firebase-starter/
 CREDITS.md
 README.md
+TODO.md
 ```
 
-The original FEX source files are stored in `docs/source-fex/` for reference.
+## Form
 
-## What Must Be Replaced Before Production
+The contact form uses Web3Forms:
 
-- real company/legal details;
-- real contact email, Facebook, Messenger, Telegram links;
-- form endpoint: Formspree, Web3Forms, FormSubmit, backend, or CRM;
-- real project cases and confirmed numbers;
-- client-owned media if required;
-- final domain and analytics/cookie policy if tracking is added.
-
-## Form Integration
-
-Current form is demo-safe and does not send external data.
-
-To connect Formspree:
-
-```html
-<form action="https://formspree.io/f/YOUR_ID" method="POST">
+```text
+https://api.web3forms.com/submit
 ```
 
-To connect Web3Forms:
+The current access key is stored in `index.html` for the temporary test scenario.
 
-```html
-<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-<form action="https://api.web3forms.com/submit" method="POST">
-```
+On successful submit:
 
-Then remove or adapt the demo submit handler in `assets/js/app.js`.
+1. the UI shows `Надсилання запиту в систему`;
+2. progress moves to 100% after Web3Forms accepts the request;
+3. the visitor is redirected to `request-processing.html?status=received`.
 
 ## Local Preview
 
-From this folder:
-
 ```bash
-python -m http.server 8098
+python -m http.server 8108
 ```
 
 Open:
 
 ```text
-http://127.0.0.1:8098/
+http://127.0.0.1:8108/
 ```
 
-## Demo Limitations
+## Before Production
 
-- no backend;
-- no authentication;
-- no real CRM;
-- no real form sending until endpoint is connected;
-- all case studies are demo examples;
-- contact/social links are placeholders.
-
-## Deployment
-
-Can be deployed as static files to GitHub Pages, Netlify, Cloudflare Pages, or similar static hosting.
+- confirm final client-owned domain and brand/legal details;
+- confirm final recipient email/form provider settings;
+- replace temporary test access key if needed;
+- confirm real project case details and numbers;
+- confirm Facebook/contact links;
+- optionally connect backend/CRM from `backend-firebase-starter`.
