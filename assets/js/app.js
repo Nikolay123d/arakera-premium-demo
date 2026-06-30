@@ -7,7 +7,9 @@
   const menuPanel = document.getElementById("menuPanel");
   const menuClose = document.getElementById("menuClose");
   const preloader = document.getElementById("preloader");
+  const preloaderVideo = document.getElementById("preloaderVideo");
   const globalWallpaperVideo = document.getElementById("globalWallpaperVideo");
+  const mapScreenVideo = document.querySelector(".screen-video--map");
   const submitLoader = document.getElementById("submitLoader");
   const submitProgressBar = document.getElementById("submitProgressBar");
   const submitProgressValue = document.getElementById("submitProgressValue");
@@ -22,8 +24,10 @@
   let isSnapping = false;
   let wheelBalance = 0;
   let touchStartY = 0;
+  let touchLatestY = 0;
   let lastSnapAt = 0;
   let lastWallpaperSeek = 0;
+  let scrollRaf = 0;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const wallpaperTimeline = [0.2, 2.2, 4.4, 6.6, 8.8, 11, 13.2, 15.4];
@@ -157,6 +161,19 @@
     );
   }
 
+  function scrollableAncestor(eventTarget) {
+    const element = eventTarget.closest(".screen__inner, .resource-grid, .case-track, .partner-grid, .modal__card, .menu-panel__inner");
+    if (!element || element === shell) return null;
+    return element.scrollHeight > element.clientHeight + 3 ? element : null;
+  }
+
+  function canScrollInside(element, deltaY) {
+    if (!element) return false;
+    if (deltaY > 0) return element.scrollTop + element.clientHeight < element.scrollHeight - 2;
+    if (deltaY < 0) return element.scrollTop > 2;
+    return false;
+  }
+
   function handleWheel(event) {
     if (shouldIgnoreSnap(event.target)) return;
     const now = Date.now();
@@ -200,7 +217,7 @@
     document.querySelectorAll("video").forEach((video) => {
       video.muted = true;
       video.playsInline = true;
-      video.preload = video.id === "globalWallpaperVideo" ? "auto" : (video.preload || "metadata");
+      video.preload = video.id === "globalWallpaperVideo" || video.id === "preloaderVideo" || video.classList.contains("screen-video--map") ? "auto" : (video.preload || "metadata");
       video.addEventListener("loadedmetadata", () => {
         if (video.id === "globalWallpaperVideo") {
           syncWallpaperToScreen(activeIndex);
@@ -227,11 +244,27 @@
   function initPreloader() {
     if (!preloader) return;
 
-    const wallpaperPoster = new Image();
-    wallpaperPoster.src = "assets/images/earth-night-orbit-poster.jpg";
-    if (globalWallpaperVideo) {
-      globalWallpaperVideo.load();
-    }
+    const criticalPosters = [
+      "assets/images/arakera-preloader-poster.jpg",
+      "assets/images/earth-night-orbit-poster.jpg",
+      "assets/images/arakera-map-slide-poster.jpg"
+    ].map((src) => {
+      const image = new Image();
+      image.src = src;
+      return new Promise((resolve) => {
+        image.onload = image.onerror = resolve;
+      });
+    });
+
+    const criticalVideos = [preloaderVideo, globalWallpaperVideo, mapScreenVideo].filter(Boolean);
+    criticalVideos.forEach((video) => {
+      video.preload = "auto";
+      video.load();
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    });
 
     const minTime = prefersReducedMotion ? 350 : 4800;
     const maxTime = prefersReducedMotion ? 700 : 5600;
@@ -250,19 +283,15 @@
     }
 
     Promise.allSettled([
-      new Promise((resolve) => { wallpaperPoster.onload = wallpaperPoster.onerror = resolve; }),
-      new Promise((resolve) => {
-        if (!globalWallpaperVideo) {
+      ...criticalPosters,
+      ...criticalVideos.map((video) => new Promise((resolve) => {
+        if (video.readyState >= 3) {
           resolve();
           return;
         }
-        if (globalWallpaperVideo.readyState >= 3) {
-          resolve();
-          return;
-        }
-        globalWallpaperVideo.addEventListener("canplay", resolve, { once: true });
-        globalWallpaperVideo.addEventListener("error", resolve, { once: true });
-      })
+        video.addEventListener("canplay", resolve, { once: true });
+        video.addEventListener("error", resolve, { once: true });
+      }))
     ]).then(tryHide);
 
     setTimeout(tryHide, maxTime);
@@ -348,16 +377,29 @@
     });
 
     shell.addEventListener("scroll", () => {
-      if (!isSnapping) {
-        setActive(nearestIndex());
-      }
+      if (isSnapping || scrollRaf) return;
+      scrollRaf = window.requestAnimationFrame(() => {
+        scrollRaf = 0;
+        const index = nearestIndex();
+        if (index !== activeIndex) setActive(index);
+      });
     }, { passive: true });
 
     shell.addEventListener("wheel", handleWheel, { passive: false });
 
     shell.addEventListener("touchstart", (event) => {
       touchStartY = event.touches[0].clientY;
+      touchLatestY = touchStartY;
     }, { passive: true });
+
+    shell.addEventListener("touchmove", (event) => {
+      if (shouldIgnoreSnap(event.target) || isSnapping) return;
+      touchLatestY = event.touches[0].clientY;
+      const deltaY = touchStartY - touchLatestY;
+      if (Math.abs(deltaY) < 8) return;
+      if (canScrollInside(scrollableAncestor(event.target), deltaY)) return;
+      event.preventDefault();
+    }, { passive: false });
 
     shell.addEventListener("touchend", (event) => {
       if (shouldIgnoreSnap(event.target) || isSnapping) return;

@@ -9,20 +9,16 @@
   <meta property="og:description" content="8-екранна premium-презентація для ARAKERA Group: система, ресурси, карта руху проєкту, партнерства, географія та зв'язок.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/earth-night-orbit-poster.jpg">
+  <link rel="preload" href="assets/images/arakera-preloader-poster.jpg" as="image">
   <link rel="preload" href="assets/images/earth-night-orbit-poster.jpg" as="image">
+  <link rel="preload" href="assets/videos/arakera-preloader-mobile.mp4" as="video" type="video/mp4">
   <link rel="preload" href="assets/videos/earth-night-orbit-wallpaper.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/videos/arakera-map-slide-mobile.mp4" as="video" type="video/mp4">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__backdrop"></div>
-    <div class="preloader__card">
-      <div class="mark mark--large">A</div>
-      <p>ARAKERA GROUP</p>
-      <h1>Project Coordination Hub</h1>
-      <span>Готуємо систему презентації проєкту...</span>
-      <div class="preloader__line"><i></i></div>
-    </div>
+    <video class="preloader__video" id="preloaderVideo" src="assets/videos/arakera-preloader-mobile.mp4" poster="assets/images/arakera-preloader-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
 
   <div class="global-video-wallpaper" aria-hidden="true">
@@ -275,7 +271,7 @@
 
     <section class="screen screen--geo-map" id="screen-7" data-index="6">
       <div class="screen-bg" style="background-image:url('assets/images/arakera-map-slide-poster.jpg')"></div>
-      <video class="screen-video screen-video--map" autoplay muted loop playsinline preload="metadata" poster="assets/images/arakera-map-slide-poster.jpg" aria-hidden="true">
+      <video class="screen-video screen-video--map" autoplay muted loop playsinline preload="auto" poster="assets/images/arakera-map-slide-poster.jpg" aria-hidden="true">
         <source src="assets/videos/arakera-map-slide-mobile.mp4" type="video/mp4">
       </video>
       <div class="screen-shade screen-shade--geo-map"></div>
