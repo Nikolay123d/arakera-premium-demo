@@ -1,10 +1,10 @@
 :root {
-  --bg: #101f2b;
-  --bg-2: #183142;
-  --panel: rgba(24, 47, 62, 0.9);
-  --panel-strong: rgba(28, 55, 72, 0.96);
-  --panel-soft: rgba(255, 255, 255, 0.07);
-  --line: rgba(198, 221, 232, 0.18);
+  --bg: #050b10;
+  --bg-2: #09151d;
+  --panel: rgba(5, 13, 19, 0.88);
+  --panel-strong: rgba(5, 12, 18, 0.96);
+  --panel-soft: rgba(255, 255, 255, 0.045);
+  --line: rgba(198, 221, 232, 0.14);
   --line-strong: rgba(139, 226, 172, 0.42);
   --text: #f5f7ef;
   --muted: #c8d4d8;
@@ -37,9 +37,9 @@ body {
   margin: 0;
   font-family: var(--font-ui);
   background:
-    radial-gradient(circle at 20% 8%, rgba(139, 226, 172, 0.16), transparent 28rem),
-    radial-gradient(circle at 85% 78%, rgba(240, 201, 107, 0.14), transparent 30rem),
-    linear-gradient(145deg, #101d27 0%, #1b3647 48%, #102433 100%);
+    radial-gradient(circle at 20% 8%, rgba(139, 226, 172, 0.08), transparent 28rem),
+    radial-gradient(circle at 85% 78%, rgba(240, 201, 107, 0.09), transparent 30rem),
+    linear-gradient(145deg, #04090d 0%, #08131a 48%, #040b10 100%);
   color: var(--text);
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
@@ -222,8 +222,8 @@ svg {
   border: 1px solid rgba(139, 226, 172, 0.42);
   border-radius: 16px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
-    rgba(16, 35, 48, 0.88);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    rgba(5, 13, 19, 0.88);
   color: #fff;
   font-size: 1.55rem;
   font-weight: 900;
@@ -433,9 +433,9 @@ svg {
 
 .screen-shade--solid {
   background:
-    radial-gradient(circle at 50% 82%, rgba(240, 201, 107, 0.14), transparent 30rem),
-    radial-gradient(circle at 54% 26%, rgba(139, 226, 172, 0.12), transparent 24rem),
-    linear-gradient(145deg, #132736, #1d3c50 52%, #122b3c);
+    radial-gradient(circle at 50% 82%, rgba(240, 201, 107, 0.1), transparent 30rem),
+    radial-gradient(circle at 54% 26%, rgba(139, 226, 172, 0.08), transparent 24rem),
+    linear-gradient(145deg, rgba(3, 8, 12, 0.9), rgba(5, 13, 19, 0.92) 52%, rgba(3, 8, 12, 0.9));
 }
 
 .screen-shade--map {
@@ -443,6 +443,11 @@ svg {
     radial-gradient(circle at 20% 18%, rgba(139, 226, 172, 0.08), transparent 23rem),
     radial-gradient(circle at 84% 72%, rgba(240, 201, 107, 0.1), transparent 26rem),
     linear-gradient(145deg, rgba(4, 12, 20, 0.5), rgba(7, 20, 32, 0.62) 52%, rgba(4, 12, 20, 0.52));
+}
+
+.screen-shade--geo-map {
+  background:
+    linear-gradient(180deg, rgba(3, 8, 12, 0.1), rgba(3, 8, 12, 0.03) 46%, rgba(3, 8, 12, 0.22));
 }
 
 .screen__inner {
@@ -458,8 +463,8 @@ svg {
   border: 1px solid rgba(198, 221, 232, 0.22);
   border-radius: clamp(26px, 3vw, 40px);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
-    rgba(19, 41, 55, 0.76);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
+    rgba(4, 11, 17, 0.84);
   box-shadow:
     0 34px 110px rgba(0, 0, 0, 0.32),
     inset 0 0 0 1px rgba(139, 226, 172, 0.05);
@@ -859,7 +864,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
     var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
@@ -926,7 +931,7 @@ h3 {
   padding: clamp(20px, 3vw, 34px);
   border: 1px solid var(--line);
   border-radius: 34px;
-  background: rgba(16, 34, 47, 0.78);
+  background: rgba(5, 13, 19, 0.82);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -1144,7 +1149,7 @@ h3 {
   justify-self: center;
   width: min(520px, 100%);
   border: 1px solid rgba(139, 226, 172, 0.55);
-  background: linear-gradient(90deg, rgba(10, 28, 36, 0.72), rgba(19, 50, 48, 0.75));
+  background: linear-gradient(90deg, rgba(4, 13, 18, 0.8), rgba(7, 24, 22, 0.78));
   color: rgba(245, 247, 239, 0.95);
   box-shadow: 0 0 34px rgba(139, 226, 172, 0.12);
 }
@@ -1343,7 +1348,7 @@ h3 {
   border: 2px solid rgba(139, 226, 172, 0.34);
   background:
     radial-gradient(circle at 50% 50%, rgba(139, 226, 172, 0.15), transparent 58%),
-    rgba(9, 24, 36, 0.7);
+    rgba(4, 12, 18, 0.78);
   color: rgba(139, 226, 172, 0.96);
   font-size: clamp(1.25rem, 2vw, 2rem);
 }
@@ -1432,13 +1437,51 @@ h3 {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 36px;
-  background: rgba(13, 28, 39, 0.86);
+  background: rgba(4, 11, 17, 0.88);
   box-shadow: var(--shadow);
 }
 
 .map-card svg {
   width: 100%;
   min-height: 360px;
+}
+
+.screen--geo-map::before {
+  opacity: 0;
+}
+
+.screen--geo-map .screen-video--map,
+.screen--geo-map .screen-bg {
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+.screen--geo-map .screen__inner {
+  display: grid;
+  place-items: end center;
+  width: min(1120px, calc(100vw - 132px));
+  height: min(720px, calc(100svh - 58px));
+  height: min(720px, calc(100dvh - 58px));
+  padding: clamp(28px, 4vh, 44px);
+  border-color: rgba(240, 201, 107, 0.22);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.screen--geo-map .screen__inner::before,
+.screen--geo-map .screen__inner::after {
+  display: none;
+}
+
+.geo-video-cta {
+  width: min(360px, 86vw);
+  min-height: 56px;
+  margin-bottom: clamp(6px, 3vh, 28px);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    0 0 34px rgba(240, 201, 107, 0.24);
 }
 
 .land {
@@ -1501,7 +1544,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 16px;
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.055);
   color: #fff;
   padding: 14px 16px;
   resize: vertical;
@@ -1557,8 +1600,8 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 38px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(19, 38, 52, 0.96);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
+    rgba(4, 11, 17, 0.96);
   box-shadow: var(--shadow);
 }
 
@@ -1656,8 +1699,8 @@ h3 {
   border: 1px solid rgba(240, 201, 107, 0.28);
   border-radius: 36px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
-    rgba(13, 28, 39, 0.94);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.016)),
+    rgba(4, 11, 17, 0.94);
   box-shadow: 0 44px 140px rgba(0, 0, 0, 0.55);
   text-align: center;
 }
@@ -1756,8 +1799,8 @@ h3 {
   border: 1px solid rgba(240, 201, 107, 0.26);
   border-radius: clamp(28px, 5vw, 46px);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035)),
-    rgba(13, 28, 39, 0.9);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.016)),
+    rgba(4, 11, 17, 0.9);
   box-shadow: 0 44px 150px rgba(0, 0, 0, 0.55);
   text-align: center;
   backdrop-filter: blur(14px);
@@ -1992,6 +2035,25 @@ h3 {
 
   .map-card svg {
     min-height: 300px;
+  }
+
+  .screen--geo-map .screen__inner {
+    width: calc(100vw - 28px);
+    height: min(720px, calc(100svh - 58px));
+    height: min(720px, calc(100dvh - 58px));
+    padding: 22px;
+    overflow: visible;
+  }
+
+  .screen--geo-map .screen-video--map,
+  .screen--geo-map .screen-bg {
+    object-position: center center;
+  }
+
+  .geo-video-cta {
+    min-height: 52px;
+    margin-bottom: max(10px, env(safe-area-inset-bottom));
+    font-size: 0.82rem;
   }
 
   .scroll-hint {

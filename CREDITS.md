@@ -7,6 +7,7 @@ Media is saved locally in `assets/images` and `assets/videos`.
 | File | Usage | Source |
 |---|---|---|
 | `assets/videos/earth-night-orbit-wallpaper.mp4` | Active shared video wallpaper across all 8 screens | NASA Scientific Visualization Studio, “Unprecedented New Look at Our Planet at Night” — https://svs.gsfc.nasa.gov/4019/ |
+| `assets/videos/arakera-map-slide-mobile.mp4` | Screen 07 video map / project route slide | Client-provided FEX file from https://fex.net/ru/s/bnr8o2o |
 | `assets/videos/hero-prague-office.mp4` | Reserve local business/corporate video asset | Pixabay, “Penthouse, Prague, Building, Office” — https://pixabay.com/videos/penthouse-prague-building-office-24136/ |
 | `assets/videos/project-planning-team.mp4` | Reserve local project/team video asset | Pixabay, “Office, People, Business, Work, Team” — https://pixabay.com/videos/office-people-business-work-team-39890/ |
 
@@ -15,6 +16,7 @@ Media is saved locally in `assets/images` and `assets/videos`.
 | File | Usage | Source |
 |---|---|---|
 | `assets/images/earth-night-orbit-poster.jpg` | Active poster/preloader image for orbit video wallpaper | Still generated locally from NASA SVS video — https://svs.gsfc.nasa.gov/4019/ |
+| `assets/images/arakera-map-slide-poster.jpg` | Poster for Screen 07 video map | Still generated locally from client-provided FEX video |
 | `assets/images/hero-prague-office-poster.jpg` | Reserve video poster | Pixabay video poster from https://pixabay.com/videos/penthouse-prague-building-office-24136/ |
 | `assets/images/project-planning-poster.jpg` | Reserved video poster | Pixabay video poster from https://pixabay.com/videos/office-people-business-work-team-39890/ |
 | `assets/images/corporate-tower.jpg` | Preloader / contact background | Unsplash photo `photo-1486406146926-c627a92ad1ab` |

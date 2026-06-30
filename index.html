@@ -273,36 +273,14 @@
       </div>
     </section>
 
-    <section class="screen" id="screen-7" data-index="6">
-      <div class="screen-shade screen-shade--solid"></div>
-      <div class="screen__inner geo-layout">
-        <div class="section-title reveal-left">
-          <p class="eyebrow">07 · ГЕОГРАФІЯ ДІЯЛЬНОСТІ</p>
-          <h2>Географія діяльності</h2>
-          <p>Координація проєктів у Центральній Європі. Розширення діяльності по всій Європі. Транскордонні операції.</p>
-          <p class="geo-note">На карті зображено Чеську Республіку, Словаччину, Австрію, Німеччину та Польщу як ключову зону координації.</p>
-          <button class="btn btn--gold" type="button" data-open-modal="project">Подати проєкт</button>
-        </div>
-        <div class="map-card reveal-right" aria-label="Карта Центральної Європи">
-          <svg viewBox="0 0 760 520" role="img" aria-label="Німеччина, Польща, Австрія, Словаччина, Чехія">
-            <defs>
-              <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="12" result="blur"/>
-                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.95  0 0.68 0 0 0.48  0 0 0.25 0 0.1  0 0 0 1 0"/>
-                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <rect width="760" height="520" fill="#07111b"/>
-            <path class="map-line" d="M80 135C166 78 255 92 310 150C351 193 388 180 442 145C520 94 641 113 694 193"/>
-            <path class="land" d="M210 120l80-30 70 58 100-20 55 74 82 38-33 79-91 12-67 72-86-33-95 23-61-69 31-84-42-63z"/>
-            <path class="highlight" d="M250 168l77-21 70 37 81-22 74 61-44 73-102 18-45 62-74-42-82 17-42-63 30-73z" filter="url(#goldGlow)"/>
-            <g class="pin"><circle cx="344" cy="228" r="9"/><text x="360" y="234">НІМЕЧЧИНА</text></g>
-            <g class="pin"><circle cx="492" cy="198" r="9"/><text x="510" y="204">ПОЛЬЩА</text></g>
-            <g class="pin"><circle cx="380" cy="318" r="9"/><text x="398" y="324">АВСТРІЯ</text></g>
-            <g class="pin"><circle cx="510" cy="308" r="9"/><text x="528" y="314">СЛОВАЧЧИНА</text></g>
-            <g class="pin"><circle cx="418" cy="260" r="9"/><text x="436" y="266">ЧЕСЬКА РЕСП.</text></g>
-          </svg>
-        </div>
+    <section class="screen screen--geo-map" id="screen-7" data-index="6">
+      <div class="screen-bg" style="background-image:url('assets/images/arakera-map-slide-poster.jpg')"></div>
+      <video class="screen-video screen-video--map" autoplay muted loop playsinline preload="metadata" poster="assets/images/arakera-map-slide-poster.jpg" aria-hidden="true">
+        <source src="assets/videos/arakera-map-slide-mobile.mp4" type="video/mp4">
+      </video>
+      <div class="screen-shade screen-shade--geo-map"></div>
+      <div class="screen__inner geo-map-layout">
+        <button class="btn btn--gold geo-video-cta reveal-up" type="button" data-open-modal="project">Партнерський запит</button>
       </div>
     </section>
 
