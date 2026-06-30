@@ -30,7 +30,7 @@ const panelContent = {
     eyebrow: "Проєкти",
     title: "Кожен кейс починається з правильно поставленого питання.",
     copy: "Demo-кейси показують типові сценарії, де інтеграційний центр корисний: технології, будівництво, автоматизація, логістика і партнерства.",
-    image: "assets/images/door-access-control.jpg",
+    image: "assets/images/corporate-tower.jpg",
     cards: [
       ["Access", "Контроль доступу", "Підключити постачальників, монтаж і власника об'єкта в одну карту дій."],
       ["Renovation", "Реконструкція", "Розділити ремонт/об'єкт на етапи, людей, ризики і контроль."],
@@ -84,7 +84,7 @@ const projectDetails = {
 };
 
 const projectMedia = {
-  access: "assets/images/door-access-control.jpg",
+  access: "assets/images/corporate-tower.jpg",
   renovation: "assets/images/construction-renovation.jpg",
   smart: "assets/images/smart-technology.jpg",
   logistics: "assets/images/logistics-operations.jpg"
@@ -182,21 +182,6 @@ menuButton?.addEventListener("click", openMenu);
 floatingMenuButton?.addEventListener("click", openMenu);
 menuClose?.addEventListener("click", closeMenu);
 
-function positionFloatingMenu() {
-  if (!floatingMenuButton) return;
-  const visibleWidth = window.visualViewport?.width || window.innerWidth;
-  const top = Math.max(14, window.visualViewport?.offsetTop || 14);
-  const left = Math.max(14, Math.min(326, visibleWidth - 64));
-  floatingMenuButton.style.left = `${left}px`;
-  floatingMenuButton.style.right = "auto";
-  floatingMenuButton.style.top = `${top + 14}px`;
-}
-
-positionFloatingMenu();
-window.addEventListener("resize", positionFloatingMenu, { passive: true });
-window.visualViewport?.addEventListener("resize", positionFloatingMenu, { passive: true });
-window.visualViewport?.addEventListener("scroll", positionFloatingMenu, { passive: true });
-
 qsa("[data-scroll]").forEach(btn => {
   btn.addEventListener("click", () => {
     closeMenu();
@@ -290,27 +275,27 @@ function loginContent() {
     <div class="panel-grid">
       <article class="panel-card"><span>01</span><h3>Запит доступу</h3><p>Клієнт залишає контакт і описує роль у проєкті.</p></article>
       <article class="panel-card"><span>02</span><h3>Підтвердження</h3><p>Команда ARAKERA визначає, який тип доступу потрібен.</p></article>
-      <article class="panel-card"><span>03</span><h3>Наступний етап</h3><p>Після production-розробки підключається реальний backend або CRM.</p></article>
+      <article class="panel-card"><span>03</span><h3>Наступний етап</h3><p>Після production-розробки підключається реальна технічна інтеграція або CRM.</p></article>
     </div>
     <button class="btn btn--gold" type="button" data-open-modal="project">Запросити доступ</button>`;
 }
 
 function backendContent() {
   return `
-    <p class="eyebrow">Production backend plan</p>
+    <p class="eyebrow">План інтеграції</p>
     <h2>Що можна швидко підключити після затвердження demo.</h2>
     <div class="modal-media">
       <img src="assets/images/smart-technology.jpg" alt="" loading="lazy">
       <strong>Заявки, база, статуси і контроль витрат</strong>
     </div>
-    <p>Для старту не потрібна дорога CRM. Можна підключити легкий backend: форма відправляє заявку на email, зберігає копію в Firestore, а власник бачить статуси в простій таблиці або admin-view.</p>
+    <p>Для старту не потрібна дорога CRM. Можна підключити легку інтеграцію: форма відправляє заявку на email, зберігає копію в Firestore, а власник бачить статуси в простій таблиці або admin-view.</p>
     <div class="panel-grid">
       <article class="panel-card"><span>Email</span><h3>Заявки на пошту</h3><p>Після кліку “Подати проєкт” лист приходить відповідальній людині з темою, контактом і джерелом кнопки.</p></article>
       <article class="panel-card"><span>Firestore</span><h3>База звернень</h3><p>Заявки не губляться: їх можна фільтрувати за статусом, типом і датою.</p></article>
       <article class="panel-card"><span>Budget</span><h3>Контроль бюджету</h3><p>На Google Cloud ставляться budget alerts. Для невеликого обсягу можна почати з no-cost квот і pay-as-you-go.</p></article>
     </div>
-    <p class="form-note">Орієнтир: backend setup від 150 €. Щомісячні витрати залежать від трафіку і включених сервісів; для малого обсягу часто можна стартувати з 0 Kč або мінімальних оплат у межах безкоштовних квот.</p>
-    <button class="btn btn--gold" type="button" data-open-modal="project">Обговорити production-запуск</button>`;
+    <p class="form-note">Орієнтир: технічне налаштування від 150 €. Щомісячні витрати залежать від трафіку і включених сервісів; для малого обсягу часто можна стартувати з 0 Kč або мінімальних оплат у межах безкоштовних квот.</p>
+    <button class="btn btn--gold" type="button" data-open-modal="project">Обговорити запуск</button>`;
 }
 
 function openModal(kind) {
@@ -389,6 +374,19 @@ qsa(".reveal").forEach((el, index) => {
   revealObserver.observe(el);
 });
 
+function revealPriorityContent() {
+  const message = qs("#message");
+  if (!message || message.classList.contains("is-visible")) return;
+  const rect = message.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+    message.classList.add("is-visible");
+    revealObserver.unobserve(message);
+  }
+}
+
+window.addEventListener("load", () => window.setTimeout(revealPriorityContent, 900));
+window.addEventListener("scroll", revealPriorityContent, { passive: true });
+
 const videoObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!processVideo || reducedMotion) return;
@@ -411,8 +409,9 @@ function setSticky() {
     return;
   }
   const scrolled = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
-  sticky.classList.toggle("is-visible", scrolled > 0.32);
-  sticky.setAttribute("aria-hidden", scrolled > 0.32 ? "false" : "true");
+  const shouldShow = scrolled > 0.4;
+  sticky.classList.toggle("is-visible", shouldShow);
+  sticky.setAttribute("aria-hidden", shouldShow ? "false" : "true");
 }
 window.addEventListener("scroll", setSticky, { passive: true });
 setSticky();
