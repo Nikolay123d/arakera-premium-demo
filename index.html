@@ -8,17 +8,19 @@
   <meta property="og:title" content="ARAKERA Group — Project Coordination & Integration Hub">
   <meta property="og:description" content="8-екранна premium-презентація для ARAKERA Group: система, ресурси, карта руху проєкту, партнерства, географія та зв'язок.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/earth-night-orbit-poster.jpg">
-  <link rel="preload" href="assets/images/arakera-preloader-poster.jpg" as="image">
-  <link rel="preload" href="assets/images/earth-night-orbit-poster.jpg" as="image">
+  <meta property="og:image" content="assets/images/arakera-screen-1-poster.jpg">
   <link rel="preload" href="assets/videos/arakera-preloader-mobile.mp4" as="video" type="video/mp4">
-  <link rel="preload" href="assets/videos/earth-night-orbit-wallpaper.mp4" as="video" type="video/mp4">
-  <link rel="preload" href="assets/videos/arakera-map-slide-mobile.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/videos/arakera-screen-1.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/videos/arakera-screen-2.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/videos/arakera-screen-3.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/videos/arakera-screen-7-map.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/images/arakera-screen-5-projects.png" as="image">
+  <link rel="preload" href="assets/images/arakera-screen-8-contact.png" as="image">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="preloader" id="preloader" aria-hidden="true">
-    <video class="preloader__video" id="preloaderVideo" src="assets/videos/arakera-preloader-mobile.mp4" poster="assets/images/arakera-preloader-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <video class="preloader__video" id="preloaderVideo" src="assets/videos/arakera-preloader-mobile.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
 
   <div class="global-video-wallpaper" aria-hidden="true">
@@ -59,7 +61,11 @@
   <div class="progress-rail" aria-hidden="true"><i id="screenProgress"></i></div>
 
   <main class="snap-shell" id="snapShell">
-    <section class="screen screen--hero is-active" id="screen-1" data-index="0">
+    <section class="screen screen--hero screen--media-only is-active" id="screen-1" data-index="0">
+      <video class="screen-video screen-video--slide" src="assets/videos/arakera-screen-1.mp4" poster="assets/images/arakera-screen-1-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="slide-actions">
+        <button class="slide-hotspot slide-hotspot--s1-system" type="button" data-open-modal="system" aria-label="Увійти в систему"></button>
+      </div>
       <div class="screen-shade screen-shade--light"></div>
       <div class="screen__inner hero-layout hero-layout--identity">
         <div class="hero-copy hero-copy--identity reveal-up">
@@ -78,7 +84,11 @@
       </div>
     </section>
 
-    <section class="screen screen--entry-system" id="screen-2" data-index="1">
+    <section class="screen screen--entry-system screen--media-only" id="screen-2" data-index="1">
+      <video class="screen-video screen-video--slide" src="assets/videos/arakera-screen-2.mp4" poster="assets/images/arakera-screen-2-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="slide-actions">
+        <button class="slide-hotspot slide-hotspot--s2-project" type="button" data-open-modal="project" aria-label="Розпочати вхід проєкту"></button>
+      </div>
       <div class="screen-bg" style="background-image:url('assets/images/business-coordination.jpg')"></div>
       <div class="screen-shade screen-shade--map"></div>
       <div class="screen__inner entry-system-panel">
@@ -139,7 +149,11 @@
       </div>
     </section>
 
-    <section class="screen" id="screen-3" data-index="2">
+    <section class="screen screen--media-only" id="screen-3" data-index="2">
+      <video class="screen-video screen-video--slide" src="assets/videos/arakera-screen-3.mp4" poster="assets/images/arakera-screen-3-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="slide-actions">
+        <button class="slide-hotspot slide-hotspot--s3-partner" type="button" data-open-modal="project" aria-label="Партнерський запит"></button>
+      </div>
       <div class="screen-bg" style="background-image:url('assets/images/smart-technology.jpg')"></div>
       <div class="screen-shade"></div>
       <div class="screen__inner resources-layout">
@@ -175,7 +189,8 @@
       </div>
     </section>
 
-    <section class="screen screen--flow-map" id="screen-4" data-index="3">
+    <section class="screen screen--flow-map screen--media-only" id="screen-4" data-index="3">
+      <video class="screen-video screen-video--slide" src="assets/videos/arakera-screen-4.mp4" poster="assets/images/arakera-screen-4-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
       <div class="screen-bg" style="background-image:url('assets/images/smart-technology.jpg')"></div>
       <div class="screen-shade screen-shade--map"></div>
       <div class="screen__inner flow-layout flow-map-panel">
@@ -208,7 +223,12 @@
       </div>
     </section>
 
-    <section class="screen" id="screen-5" data-index="4">
+    <section class="screen screen--media-only screen--image-slide" id="screen-5" data-index="4">
+      <img class="screen-media screen-media--slide" src="assets/images/arakera-screen-5-projects.png" alt="ARAKERA проєкти">
+      <div class="slide-actions">
+        <button class="slide-hotspot slide-hotspot--case-access" type="button" data-open-modal="caseAccess" aria-label="Інтеграція системи контролю доступу"></button>
+        <button class="slide-hotspot slide-hotspot--case-renovation" type="button" data-open-modal="caseRenovation" aria-label="Реконструкція житлового об'єкта"></button>
+      </div>
       <div class="screen-bg" style="background-image:url('assets/images/door-access-control.jpg')"></div>
       <div class="screen-shade"></div>
       <div class="screen__inner projects-layout">
@@ -243,7 +263,8 @@
       </div>
     </section>
 
-    <section class="screen" id="screen-6" data-index="5">
+    <section class="screen screen--media-only" id="screen-6" data-index="5">
+      <video class="screen-video screen-video--slide" src="assets/videos/arakera-screen-6.mp4" poster="assets/images/arakera-screen-6-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
       <div class="screen-bg" style="background-image:url('assets/images/partnership-meeting.jpg')"></div>
       <div class="screen-shade"></div>
       <div class="screen__inner partnerships-layout">
@@ -269,7 +290,11 @@
       </div>
     </section>
 
-    <section class="screen screen--geo-map" id="screen-7" data-index="6">
+    <section class="screen screen--geo-map screen--media-only" id="screen-7" data-index="6">
+      <video class="screen-video screen-video--slide screen-video--map" src="assets/videos/arakera-screen-7-map.mp4" poster="assets/images/arakera-screen-7-map-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="slide-actions">
+        <button class="slide-hotspot slide-hotspot--s7-partner" type="button" data-open-modal="project" aria-label="Партнерський запит"></button>
+      </div>
       <div class="screen-bg" style="background-image:url('assets/images/arakera-map-slide-poster.jpg')"></div>
       <video class="screen-video screen-video--map" autoplay muted loop playsinline preload="auto" poster="assets/images/arakera-map-slide-poster.jpg" aria-hidden="true">
         <source src="assets/videos/arakera-map-slide-mobile.mp4" type="video/mp4">
@@ -280,7 +305,20 @@
       </div>
     </section>
 
-    <section class="screen" id="screen-8" data-index="7">
+    <section class="screen screen--media-only screen--contact-slide" id="screen-8" data-index="7">
+      <img class="screen-media screen-media--slide" src="assets/images/arakera-screen-8-contact.png" alt="ARAKERA зв'язок">
+      <form class="slide-contact-form" id="projectForm" autocomplete="on">
+        <input type="hidden" name="access_key" value="ac5ffe92-57e4-41fb-a905-3dc1c154cd2e">
+        <input type="hidden" name="subject" value="ARAKERA — нова заявка">
+        <input type="hidden" name="from_name" value="ARAKERA landing">
+        <input type="hidden" name="source_page" value="arakera-screen-flow">
+        <input class="slide-input slide-input--name" name="name" type="text" placeholder="Ваше ім'я" required aria-label="Ім'я">
+        <input class="slide-input slide-input--company" name="company" type="text" placeholder="Назва компанії / команда" aria-label="Компанія">
+        <input class="slide-input slide-input--project" name="project" type="text" placeholder="Коротко про задачу" aria-label="Проєкт / можливість">
+        <textarea class="slide-input slide-input--message" name="message" rows="4" placeholder="Що потрібно структурувати?" aria-label="Повідомлення"></textarea>
+        <button class="slide-hotspot slide-hotspot--s8-submit" type="submit" aria-label="Увійти в систему"></button>
+        <p class="form-note slide-form-note" id="formNote" aria-live="polite"></p>
+      </form>
       <div class="screen-bg" style="background-image:url('assets/images/corporate-tower.jpg')"></div>
       <div class="screen-shade"></div>
       <div class="screen__inner contact-layout">
@@ -295,7 +333,7 @@
             <span>✓ Бізнес-можливості</span>
           </div>
         </div>
-        <form class="contact-form reveal-right" id="projectForm">
+        <form class="contact-form reveal-right" id="projectFormLegacy" aria-hidden="true">
           <input type="hidden" name="access_key" value="ac5ffe92-57e4-41fb-a905-3dc1c154cd2e">
           <input type="hidden" name="subject" value="ARAKERA — нова заявка">
           <input type="hidden" name="from_name" value="ARAKERA landing">
@@ -305,7 +343,7 @@
           <label>Проєкт / можливість<input name="project" type="text" placeholder="Коротко про задачу"></label>
           <label>Повідомлення<textarea name="message" rows="4" placeholder="Що потрібно структурувати?"></textarea></label>
           <button class="btn btn--gold btn--wide" type="submit">Увійти в систему</button>
-          <p class="form-note" id="formNote">Заявка буде надіслана для перевірки сценарію та подальшого зв'язку.</p>
+          <p class="form-note">Заявка буде надіслана для перевірки сценарію та подальшого зв'язку.</p>
         </form>
       </div>
     </section>
@@ -349,6 +387,28 @@
         <span>4. Ресурси і бюджет</span>
       </div>
       <button class="btn btn--gold btn--wide" type="button" data-go-form>Перейти до форми</button>
+    </div>
+  </div>
+
+  <div class="modal" id="caseAccessModal" aria-hidden="true">
+    <div class="modal__card modal__card--wide case-modal">
+      <button class="modal__close" type="button" data-close-modal>×</button>
+      <img src="assets/images/arakera-case-access-control.png" alt="Інтеграція системи контролю доступу">
+      <p class="eyebrow">КЕЙС · БЕЗПЕКА</p>
+      <h2>Інтеграція системи контролю доступу</h2>
+      <p>ARAKERA координує технічну інтеграцію, відповідальних партнерів і реалізацію системи контролю доступу для об'єкта.</p>
+      <button class="btn btn--gold btn--wide" type="button" data-go-form>Подати схожий проєкт</button>
+    </div>
+  </div>
+
+  <div class="modal" id="caseRenovationModal" aria-hidden="true">
+    <div class="modal__card modal__card--wide case-modal">
+      <button class="modal__close" type="button" data-close-modal>×</button>
+      <img src="assets/images/arakera-case-renovation.png" alt="Реконструкція житлового об'єкта">
+      <p class="eyebrow">КЕЙС · БУДІВНИЦТВО</p>
+      <h2>Реконструкція житлового об'єкта</h2>
+      <p>Проєкт проходить через координацію підрядників, контроль якості, бюджетну дисципліну та структурований рух до результату.</p>
+      <button class="btn btn--gold btn--wide" type="button" data-go-form>Подати схожий проєкт</button>
     </div>
   </div>
 

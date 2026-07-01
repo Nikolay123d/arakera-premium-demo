@@ -5,6 +5,7 @@ node_modules/
 .DS_Store
 docs/screenshots/chrome-*/
 docs/screenshots/
+docs/source-arakera-slides/
 *_REPORT.txt
 assets/videos/*-source.webm
 assets/videos/nasa-black-hole-*

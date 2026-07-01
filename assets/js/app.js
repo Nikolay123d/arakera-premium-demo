@@ -17,7 +17,9 @@
   const modals = {
     system: document.getElementById("systemModal"),
     project: document.getElementById("projectModal"),
-    contact: document.getElementById("contactModal")
+    contact: document.getElementById("contactModal"),
+    caseAccess: document.getElementById("caseAccessModal"),
+    caseRenovation: document.getElementById("caseRenovationModal")
   };
 
   let activeIndex = 0;
@@ -217,7 +219,7 @@
     document.querySelectorAll("video").forEach((video) => {
       video.muted = true;
       video.playsInline = true;
-      video.preload = video.id === "globalWallpaperVideo" || video.id === "preloaderVideo" || video.classList.contains("screen-video--map") ? "auto" : (video.preload || "metadata");
+      video.preload = video.id === "globalWallpaperVideo" || video.id === "preloaderVideo" || video.classList.contains("screen-video--slide") ? "auto" : (video.preload || "metadata");
       video.addEventListener("loadedmetadata", () => {
         if (video.id === "globalWallpaperVideo") {
           syncWallpaperToScreen(activeIndex);
@@ -245,9 +247,11 @@
     if (!preloader) return;
 
     const criticalPosters = [
-      "assets/images/arakera-preloader-poster.jpg",
-      "assets/images/earth-night-orbit-poster.jpg",
-      "assets/images/arakera-map-slide-poster.jpg"
+      "assets/images/arakera-screen-1-poster.jpg",
+      "assets/images/arakera-screen-2-poster.jpg",
+      "assets/images/arakera-screen-3-poster.jpg",
+      "assets/images/arakera-screen-5-projects.png",
+      "assets/images/arakera-screen-8-contact.png"
     ].map((src) => {
       const image = new Image();
       image.src = src;
@@ -256,7 +260,10 @@
       });
     });
 
-    const criticalVideos = [preloaderVideo, globalWallpaperVideo, mapScreenVideo].filter(Boolean);
+    const criticalVideos = [
+      preloaderVideo,
+      ...Array.from(document.querySelectorAll(".screen-video--slide"))
+    ].filter(Boolean);
     criticalVideos.forEach((video) => {
       video.preload = "auto";
       video.load();
@@ -266,8 +273,8 @@
       }
     });
 
-    const minTime = prefersReducedMotion ? 350 : 4800;
-    const maxTime = prefersReducedMotion ? 700 : 5600;
+    const minTime = prefersReducedMotion ? 450 : 6400;
+    const maxTime = prefersReducedMotion ? 900 : 7800;
     const started = Date.now();
     let done = false;
 
