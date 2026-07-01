@@ -51,7 +51,7 @@ body {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: #03070b url("../images/earth-night-orbit-poster.jpg") center / cover no-repeat;
+  background: #03070b url("../images/slides/screen-1-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 .global-video-wallpaper::after {
@@ -423,31 +423,31 @@ svg {
 #screen-2 {
   background:
     linear-gradient(180deg, rgba(2, 7, 11, 0.72), rgba(2, 7, 11, 0.86)),
-    url("../images/corporate-tower.jpg") center / cover no-repeat;
+    url("../images/slides/screen-2-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 #screen-3 {
   background:
     linear-gradient(180deg, rgba(2, 7, 11, 0.7), rgba(2, 7, 11, 0.84)),
-    url("../images/arakera-screen-3-poster.jpg") center / cover no-repeat;
+    url("../images/slides/screen-3-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 #screen-4 {
   background:
     linear-gradient(180deg, rgba(2, 7, 11, 0.68), rgba(2, 7, 11, 0.82)),
-    url("../images/arakera-screen-4-poster.jpg") center / cover no-repeat;
+    url("../images/slides/screen-4-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 #screen-6 {
   background:
     linear-gradient(180deg, rgba(2, 7, 11, 0.7), rgba(2, 7, 11, 0.84)),
-    url("../images/earth-night-orbit-poster.jpg") center / cover no-repeat;
+    url("../images/slides/screen-6-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 #screen-7 {
   background:
     linear-gradient(180deg, rgba(2, 7, 11, 0.64), rgba(2, 7, 11, 0.78)),
-    url("../images/earth-night-orbit-poster.jpg") center / cover no-repeat;
+    url("../images/slides/screen-7-cs-fit-fast.jpg") center / cover no-repeat;
 }
 
 .screen--media-only::before {
