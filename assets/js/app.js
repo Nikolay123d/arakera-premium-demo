@@ -105,6 +105,16 @@
     requestVideoPlay(video);
   }
 
+  function pauseInactiveScreenVideos(index) {
+    screens.forEach((screen, screenIndex) => {
+      if (screenIndex === index) return;
+      const video = screen.querySelector(".screen-video--slide");
+      if (video && !video.paused) {
+        video.pause();
+      }
+    });
+  }
+
   function setActive(index) {
     activeIndex = clamp(index, 0, screens.length - 1);
 
@@ -121,6 +131,7 @@
     }
 
     syncWallpaperToScreen(activeIndex);
+    pauseInactiveScreenVideos(activeIndex);
     activateScreenVideo(activeIndex, true);
     warmNearbyScreens(activeIndex);
   }
