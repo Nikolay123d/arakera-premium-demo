@@ -443,6 +443,14 @@ svg {
   transform: translateZ(0);
 }
 
+#screen-2 .screen-video--slide,
+#screen-3 .screen-video--slide,
+#screen-4 .screen-video--slide,
+#screen-6 .screen-video--slide,
+#screen-7 .screen-video--slide {
+  object-fit: contain;
+}
+
 .screen--image-slide .screen-media--slide,
 .screen--contact-slide .screen-media--slide {
   object-fit: contain;
