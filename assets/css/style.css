@@ -2027,7 +2027,7 @@ h3 {
   width: min(760px, 94vw);
   max-height: calc(100svh - 40px);
   overflow: auto;
-  padding: clamp(28px, 6vw, 56px);
+  padding: clamp(24px, 5vw, 46px);
   border: 1px solid var(--line);
   border-radius: 38px;
   background:
@@ -2044,15 +2044,30 @@ h3 {
 
 .menu-panel__inner a {
   display: block;
-  padding: 20px 0;
+  padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 5rem);
-  line-height: 0.9;
+  font-size: clamp(1.65rem, 5vw, 3.4rem);
+  line-height: 1.02;
 }
 
 .menu-panel__inner .btn {
-  margin-top: 18px;
+  min-height: 48px;
+  margin-top: 12px;
+  padding: 13px 18px;
+  font-size: clamp(0.72rem, 2.8vw, 0.92rem);
+  letter-spacing: 0.08em;
+  white-space: normal;
+}
+
+.system-modal-note {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(139, 226, 172, 0.22);
+  border-radius: 18px;
+  color: rgba(245, 247, 239, 0.86);
+  background: rgba(139, 226, 172, 0.06);
+  font-weight: 760;
 }
 
 .menu-close,
@@ -2852,8 +2867,28 @@ h3 {
     border-radius: 28px;
   }
 
+  .menu-panel__inner {
+    padding: 24px 26px 22px;
+  }
+
+  .menu-panel__inner p {
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
   .menu-panel__inner a {
-    font-size: clamp(2.3rem, 12vw, 3.4rem);
+    padding: 10px 0;
+    font-size: clamp(1.45rem, 7.2vw, 2.25rem);
+    line-height: 1.03;
+  }
+
+  .menu-panel__inner .btn {
+    min-height: 44px;
+    margin-top: 10px;
+    padding: 11px 14px;
+    border-radius: 16px;
+    font-size: clamp(0.68rem, 3.1vw, 0.82rem);
   }
 
   .modal-grid {
@@ -3694,7 +3729,26 @@ h3 {
   width: min(405px, 52vw);
   height: auto;
   min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: none;
+  grid-template-areas: none;
+  padding-inline: 22px;
+  text-align: center;
   transform: translateX(-50%);
+}
+
+.asset-slide-mode .slide-hotspot--s1-system span,
+.asset-slide-mode .slide-hotspot--s1-system small {
+  display: none;
+}
+
+.asset-slide-mode .slide-hotspot--s1-system strong {
+  grid-area: auto;
+  width: 100%;
+  font-size: clamp(0.76rem, 1.1vw, 0.96rem);
+  letter-spacing: 0.1em;
 }
 
 .asset-slide-mode #screen-1 .slide-actions::before {
