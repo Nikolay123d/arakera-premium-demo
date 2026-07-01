@@ -7,6 +7,7 @@
   const menuPanel = document.getElementById("menuPanel");
   const menuClose = document.getElementById("menuClose");
   const preloader = document.getElementById("preloader");
+  const preloaderImage = document.getElementById("preloaderImage");
   const preloaderVideo = document.getElementById("preloaderVideo");
   const globalWallpaperVideo = document.getElementById("globalWallpaperVideo");
   const mapScreenVideo = document.querySelector(".screen-video--map");
@@ -19,7 +20,8 @@
     project: document.getElementById("projectModal"),
     contact: document.getElementById("contactModal"),
     caseAccess: document.getElementById("caseAccessModal"),
-    caseRenovation: document.getElementById("caseRenovationModal")
+    caseRenovation: document.getElementById("caseRenovationModal"),
+    caseStaff: document.getElementById("caseStaffModal")
   };
 
   let activeIndex = 0;
@@ -35,9 +37,204 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const wallpaperTimeline = [0.2, 2.2, 4.4, 6.6, 8.8, 11, 13.2, 15.4];
+  const translations = {
+    cs: {
+      navEntry: "Vstup",
+      navSystem: "System",
+      navResources: "Zdroje",
+      navMap: "Mapa",
+      navProjectMap: "Mapa projektu",
+      navProjects: "Projekty",
+      navPartners: "Partneri",
+      navGeo: "Geografie",
+      navContact: "Kontakt",
+      enterSystem: "Vstoupit do systemu",
+      entryPoint: "Vstupni bod",
+      partnerRequest: "Partnersky dotaz",
+      systemResources: "Zdroje systemu",
+      projectsEyebrow: "Projekty",
+      projectsTitle: "Tri priklady vstupu do systemu",
+      projectsSubtitle: "Kazdy projekt ma oblast, roli ARAKERA a meritelny vysledek.",
+      caseAccessArea: "Bezpecnost",
+      caseAccessTitle: "Integrace systemu kontroly pristupu",
+      caseAccessText: "ARAKERA koordinuje technickou integraci, odpovedne partnery a realizaci systemu kontroly pristupu pro objekt.",
+      caseRenovationArea: "Vystavba",
+      caseRenovationTitle: "Rekonstrukce rezidencniho objektu",
+      caseRenovationText: "Projekt prochazi koordinaci dodavatelu, kontrolou kvality, rozpoctovou disciplinou a strukturovanym pohybem k vysledku.",
+      caseStaffArea: "Obnovitelna energetika",
+      caseStaffTitle: "Vyber technickeho personalu",
+      caseStaffText: "ARAKERA zajistila vyhledani, vyber a koordinaci montazniku a elektrotechnickych specialistu pro realizaci energetickych projektu. Vysledek: vice nez 200 kvalifikovanych specialistu behem jednoho roku.",
+      caseOpen: "Detail projektu",
+      contactEyebrow: "Kontakt",
+      contactTitle: "Connect with ARAKERA",
+      pointProjects: "✓ Projekty",
+      pointPartnerships: "✓ Partnerstvi",
+      pointInvestments: "✓ Investice",
+      pointBusiness: "✓ Obchodni prilezitosti",
+      namePlaceholder: "Vase jmeno",
+      companyPlaceholder: "Firma / tym",
+      projectPlaceholder: "Projekt / moznost",
+      messagePlaceholder: "Co je potreba strukturovat?",
+      submitButton: "Vstoupit do systemu",
+      systemModalEyebrow: "Vstup do systemu",
+      systemModalTitle: "Jednotny scenar vstupu projektu",
+      systemModalText: "Projekt vstupuje do systemu ARAKERA, prochazi podanim, analyzou, zdroji, partnerstvimi a pohybem k realizaci.",
+      projectModalEyebrow: "Partnersky dotaz",
+      projectModalTitle: "Kratka struktura pro start",
+      projectModalStep1: "1. Cil projektu",
+      projectModalStep2: "2. Mesto / zeme",
+      projectModalStep3: "3. Lide a partneri",
+      projectModalStep4: "4. Zdroje a rozpocet",
+      goForm: "Prejit k formulari",
+      submitSimilar: "Podat podobny projekt",
+      quickContact: "Rychly kontakt",
+      contactModalTitle: "Potrebujete rychle vysvetlit projekt?",
+      contactModalText: "Nechte kratkou informaci o zadani. System ukaze smer, moznost a dalsi krok pro rozhovor.",
+      sendingTitle: "Odesilani zadosti do systemu",
+      sendingText: "Strukturujeme data projektu...",
+      submitSending: "Odesilame...",
+      noteSending: "Odesilani zadosti do systemu...",
+      noteSuccess: "Zadost byla prijata systemem ARAKERA.",
+      noteError: "Zadost se nepodarilo odeslat. Zkontrolujte kontakt a zkuste to znovu.",
+      progressCheck: "Kontrolujeme kontaktni udaje...",
+      progressSend: "Predavame zadost do systemu ARAKERA...",
+      progressFix: "Fixujeme smer projektu...",
+      progressWait: "Cekame na potvrzeni serveru...",
+      progressAccepted: "Zadost prijata. Prechazime na stranku zpracovani...",
+      progressFailed: "Zadost se nepodarilo predat."
+    },
+    en: {
+      navEntry: "Entry",
+      navSystem: "System",
+      navResources: "Resources",
+      navMap: "Map",
+      navProjectMap: "Project map",
+      navProjects: "Projects",
+      navPartners: "Partners",
+      navGeo: "Geography",
+      navContact: "Contact",
+      enterSystem: "Enter system",
+      entryPoint: "Entry point",
+      partnerRequest: "Partner request",
+      systemResources: "System resources",
+      projectsEyebrow: "Projects",
+      projectsTitle: "Three examples of system entry",
+      projectsSubtitle: "Each project has a field, ARAKERA role and measurable result.",
+      caseAccessArea: "Security",
+      caseAccessTitle: "Access control system integration",
+      caseAccessText: "ARAKERA coordinates technical integration, responsible partners and access control implementation for the property.",
+      caseRenovationArea: "Construction",
+      caseRenovationTitle: "Residential property reconstruction",
+      caseRenovationText: "The project moves through contractor coordination, quality control, budget discipline and a structured path to completion.",
+      caseStaffArea: "Renewable energy",
+      caseStaffTitle: "Technical staff selection",
+      caseStaffText: "ARAKERA handled search, selection and coordination of installers and electrical specialists for energy projects. Result: more than 200 qualified specialists within one year.",
+      caseOpen: "Project detail",
+      contactEyebrow: "Contact",
+      contactTitle: "Connect with ARAKERA",
+      pointProjects: "✓ Projects",
+      pointPartnerships: "✓ Partnerships",
+      pointInvestments: "✓ Investments",
+      pointBusiness: "✓ Business opportunities",
+      namePlaceholder: "Your name",
+      companyPlaceholder: "Company / team",
+      projectPlaceholder: "Project / opportunity",
+      messagePlaceholder: "What needs to be structured?",
+      submitButton: "Enter system",
+      systemModalEyebrow: "System entry",
+      systemModalTitle: "One entry scenario for a project",
+      systemModalText: "The project enters the ARAKERA system and moves through submission, analysis, resources, partnerships and implementation.",
+      projectModalEyebrow: "Partner request",
+      projectModalTitle: "Short structure for the start",
+      projectModalStep1: "1. Project goal",
+      projectModalStep2: "2. City / country",
+      projectModalStep3: "3. People and partners",
+      projectModalStep4: "4. Resources and budget",
+      goForm: "Go to form",
+      submitSimilar: "Submit similar project",
+      quickContact: "Quick contact",
+      contactModalTitle: "Need to explain the project quickly?",
+      contactModalText: "Leave a short note about the task. The system will show direction, opportunity and the next conversation step.",
+      sendingTitle: "Sending request into the system",
+      sendingText: "Structuring project data...",
+      submitSending: "Sending...",
+      noteSending: "Sending request into the system...",
+      noteSuccess: "The request was accepted by the ARAKERA system.",
+      noteError: "The request could not be sent. Check the contact and try again.",
+      progressCheck: "Checking contact details...",
+      progressSend: "Passing request into the ARAKERA system...",
+      progressFix: "Fixing the project direction...",
+      progressWait: "Waiting for server confirmation...",
+      progressAccepted: "Request accepted. Opening processing page...",
+      progressFailed: "The request could not be delivered."
+    }
+  };
+  let currentLang = "cs";
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
+  }
+
+  function t(key) {
+    return translations[currentLang]?.[key] || translations.cs[key] || key;
+  }
+
+  function setLanguage(lang) {
+    currentLang = lang === "en" ? "en" : "cs";
+    document.documentElement.lang = currentLang;
+    document.documentElement.dataset.lang = currentLang;
+    try {
+      localStorage.setItem("arakera_lang", currentLang);
+    } catch (_) {
+      // Local storage may be unavailable in strict in-app browsers.
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      element.textContent = t(element.dataset.i18n);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
+    });
+
+    document.querySelectorAll(".lang-image").forEach((image) => {
+      const nextSrc = image.dataset[currentLang] || image.dataset.cs || image.getAttribute("src");
+      if (nextSrc && image.getAttribute("src") !== nextSrc) {
+        image.setAttribute("src", nextSrc);
+      }
+      if (nextSrc && image.closest(".screen--photo")) {
+        image.closest(".screen--photo").style.setProperty("--slide-bg", `url("${nextSrc}")`);
+      }
+    });
+
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.setLang === currentLang);
+    });
+  }
+
+  function initLanguage() {
+    let saved = "cs";
+    try {
+      saved = localStorage.getItem("arakera_lang") || "cs";
+    } catch (_) {
+      saved = "cs";
+    }
+    setLanguage(saved);
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+    });
+  }
+
+  function preloadImage(src) {
+    return new Promise((resolve) => {
+      if (!src) {
+        resolve();
+        return;
+      }
+      const image = new Image();
+      image.onload = image.onerror = resolve;
+      image.src = src;
+    });
   }
 
   function getScreenVideo(index) {
@@ -230,7 +427,7 @@
     closeModals();
     goTo(7);
     setTimeout(() => {
-      const input = document.querySelector("#projectForm input");
+      const input = document.querySelector('#projectForm input:not([type="hidden"]), #projectForm textarea');
       if (input) input.focus({ preventScroll: true });
     }, 850);
   }
@@ -325,80 +522,37 @@
   function initPreloader() {
     if (!preloader) return;
 
-    const firstScreenVideo = getScreenVideo(0);
-    const secondScreenVideo = getScreenVideo(1);
-    const criticalPosters = [
-      "assets/images/arakera-screen-1-poster.jpg",
-      "assets/images/arakera-screen-2-poster.jpg",
-      "assets/images/arakera-screen-3-poster.jpg",
-      "assets/images/arakera-screen-5-projects.png",
-      "assets/images/arakera-screen-8-contact.png"
-    ].map((src) => {
-      const image = new Image();
-      image.src = src;
-      return new Promise((resolve) => {
-        image.onload = image.onerror = resolve;
-      });
-    });
+    const criticalImages = [
+      preloaderImage?.getAttribute("src"),
+      "assets/images/slides/screen-1-cs-fit.png",
+      "assets/images/slides/screen-1-en-fit.png",
+      "assets/images/slides/screen-2-cs-fit.png",
+      "assets/images/slides/screen-3-cs-fit.png",
+      "assets/images/slides/screen-4-cs-fit.png",
+      "assets/images/slides/screen-5-project-3.png",
+      "assets/images/slides/screen-6-cs-fit.png",
+      "assets/images/slides/screen-7-cs-fit.png",
+      "assets/images/slides/screen-8-bg.png"
+    ].map(preloadImage);
 
-    [preloaderVideo, firstScreenVideo, secondScreenVideo].forEach((video) => {
-      prepareVideo(video);
-    });
-    requestVideoPlay(preloaderVideo);
-    requestVideoPlay(firstScreenVideo);
-    warmNearbyScreens(0);
-
-    const minVisibleTime = prefersReducedMotion ? 450 : 5600;
-    const absoluteMaxTime = prefersReducedMotion ? 900 : 9800;
+    const minVisibleTime = prefersReducedMotion ? 700 : 3800;
+    const absoluteMaxTime = prefersReducedMotion ? 1200 : 5200;
     const started = Date.now();
-    let videoVisibleAt = started;
-    let preloaderVideoReady = !preloaderVideo;
     let done = false;
-
-    function markPreloaderVideoReady() {
-      if (preloaderVideoReady) return;
-      preloaderVideoReady = true;
-      videoVisibleAt = Date.now();
-      preloaderVideo.classList.add("is-ready");
-      requestVideoPlay(preloaderVideo);
-    }
-
-    if (preloaderVideo) {
-      if (preloaderVideo.readyState >= 3) {
-        markPreloaderVideoReady();
-      } else {
-        preloaderVideo.addEventListener("canplay", markPreloaderVideoReady, { once: true });
-        preloaderVideo.addEventListener("loadeddata", markPreloaderVideoReady, { once: true });
-        preloaderVideo.addEventListener("error", () => {
-          preloaderVideoReady = true;
-          videoVisibleAt = Date.now();
-        }, { once: true });
-      }
-    }
 
     function tryHide() {
       if (done) return;
       const now = Date.now();
       const totalElapsed = now - started;
-      const visibleElapsed = now - videoVisibleAt;
-      if (!preloaderVideoReady && totalElapsed < absoluteMaxTime) {
-        setTimeout(tryHide, 180);
-        return;
-      }
-      if (visibleElapsed < minVisibleTime && totalElapsed < absoluteMaxTime) {
-        setTimeout(tryHide, Math.min(220, minVisibleTime - visibleElapsed));
+      if (totalElapsed < minVisibleTime && totalElapsed < absoluteMaxTime) {
+        setTimeout(tryHide, Math.min(220, minVisibleTime - totalElapsed));
         return;
       }
       done = true;
-      activateScreenVideo(0, true);
       hidePreloader();
     }
 
-    Promise.allSettled([
-      ...criticalPosters,
-      waitForVideo(firstScreenVideo, 3200),
-      waitForVideo(secondScreenVideo, 3400)
-    ]).then(tryHide);
+    Promise.allSettled(criticalImages).then(tryHide);
 
     setTimeout(tryHide, absoluteMaxTime);
   }
@@ -414,7 +568,7 @@
     if (!submitLoader) return;
     submitLoader.classList.add("is-open");
     submitLoader.setAttribute("aria-hidden", "false");
-    setSubmitProgress(6, "Структуруємо дані проєкту...");
+    setSubmitProgress(6, t("sendingText"));
   }
 
   function closeSubmitLoader() {
@@ -426,10 +580,10 @@
   function startSubmitProgress() {
     let progress = 6;
     const steps = [
-      "Перевіряємо контактні дані...",
-      "Передаємо запит у систему ARAKERA...",
-      "Фіксуємо напрям проєкту...",
-      "Очікуємо підтвердження від сервера..."
+      t("progressCheck"),
+      t("progressSend"),
+      t("progressFix"),
+      t("progressWait")
     ];
     let stepIndex = 0;
     setSubmitProgress(progress, steps[stepIndex]);
@@ -538,17 +692,18 @@
         formData.set("page_url", window.location.href);
         formData.set("active_screen", String(activeIndex + 1));
         formData.set("submitted_at", new Date().toISOString());
+        formData.set("language", currentLang.toUpperCase());
         formData.set("email", formData.get("email") || "lead@arakera.group");
         formData.set("redirect_target", "request-processing.html");
         let progressTimer = null;
 
         if (submitButton) {
           submitButton.disabled = true;
-          submitButton.textContent = "Відправляємо...";
+          submitButton.textContent = t("submitSending");
         }
 
         if (note) {
-          note.textContent = "Надсилання запиту в систему...";
+          note.textContent = t("noteSending");
           note.classList.remove("is-success", "is-error");
         }
         openSubmitLoader();
@@ -566,9 +721,9 @@
           }
 
           if (progressTimer) window.clearInterval(progressTimer);
-          setSubmitProgress(100, "Запит прийнято. Переходимо до сторінки обробки...");
+          setSubmitProgress(100, t("progressAccepted"));
           if (note) {
-            note.textContent = "Запит прийнято системою ARAKERA.";
+            note.textContent = t("noteSuccess");
             note.classList.add("is-success");
           }
           form.reset();
@@ -577,10 +732,10 @@
           }, 850);
         } catch (_) {
           if (progressTimer) window.clearInterval(progressTimer);
-          setSubmitProgress(0, "Запит не вдалося передати.");
+          setSubmitProgress(0, t("progressFailed"));
           window.setTimeout(closeSubmitLoader, 450);
           if (note) {
-            note.textContent = "Не вдалося відправити заявку. Перевірте контакт і спробуйте ще раз.";
+            note.textContent = t("noteError");
             note.classList.add("is-error");
           }
         } finally {
@@ -595,6 +750,7 @@
 
   function init() {
     document.documentElement.classList.add("is-ready");
+    initLanguage();
     setActive(0);
     initVideo();
     initEvents();
