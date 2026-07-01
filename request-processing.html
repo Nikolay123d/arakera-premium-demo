@@ -10,7 +10,113 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/slides/preloader-cs.png">
   <link rel="preload" href="assets/images/slides/screen-8-bg.png" as="image">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=slides-final-12">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    body {
+      background: #020914;
+    }
+
+    .processing-page {
+      position: relative;
+      display: flex;
+      width: 100%;
+      max-width: 100%;
+      min-height: 100svh;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 72px 16px 40px;
+      overflow-x: hidden;
+    }
+
+    .processing-card {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100% !important;
+      max-width: 620px !important;
+      margin: 0 auto !important;
+      transform: none !important;
+      border-radius: 32px !important;
+    }
+
+    .processing-card h1,
+    .processing-card p,
+    .processing-card .btn {
+      max-width: 100% !important;
+      white-space: normal !important;
+      overflow-wrap: anywhere;
+    }
+
+    .processing-actions {
+      display: grid !important;
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .processing-actions .btn {
+      width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .processing-page {
+        min-height: 100svh;
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-top: 64px;
+        padding-bottom: 36px;
+      }
+
+      .processing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 28px 20px !important;
+        border-radius: 32px !important;
+      }
+
+      .processing-card h1 {
+        display: grid;
+        gap: 0.06em;
+        font-size: clamp(1.55rem, 7.2vw, 2.12rem) !important;
+        line-height: 1.05 !important;
+        letter-spacing: 0.025em !important;
+      }
+
+      .processing-card h1 span {
+        display: block;
+      }
+
+      .processing-card p {
+        font-size: 0.96rem !important;
+        line-height: 1.45 !important;
+      }
+
+      .processing-actions .btn {
+        padding-inline: 14px !important;
+        font-size: clamp(0.72rem, 3.15vw, 0.9rem) !important;
+        letter-spacing: 0.02em !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="processing-bg" aria-hidden="true"></div>
@@ -19,7 +125,7 @@
     <section class="processing-card">
       <span class="mark mark--large">A</span>
       <p class="eyebrow">ARAKERA GROUP</p>
-      <h1>Zadost vstoupila do systemu</h1>
+      <h1><span>Zadost</span><span>vstoupila</span><span>do systemu</span></h1>
       <p>System ARAKERA zpracovava vasi zadost. Ozveme se na uvedeny kontakt po zpracovani. Tuto stranku muzete zavrit.</p>
       <div class="processing-status">Zpracovani zadosti je aktivni</div>
       <div class="processing-actions">

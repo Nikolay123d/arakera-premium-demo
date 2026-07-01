@@ -232,7 +232,17 @@
         return;
       }
       const image = new Image();
-      image.onload = image.onerror = resolve;
+      image.decoding = "sync";
+      image.loading = "eager";
+      image.fetchPriority = "high";
+      image.onload = () => {
+        if (image.decode) {
+          image.decode().then(resolve).catch(resolve);
+          return;
+        }
+        resolve();
+      };
+      image.onerror = resolve;
       image.src = src;
     });
   }
@@ -522,21 +532,27 @@
   function initPreloader() {
     if (!preloader) return;
 
-    const criticalImages = [
+    const immediateImages = [
       preloaderImage?.getAttribute("src"),
       "assets/images/slides/screen-1-cs-fit.png",
       "assets/images/slides/screen-1-en-fit.png",
-      "assets/images/slides/screen-2-cs-fit.png",
+      "assets/images/slides/screen-2-cs-fit.png"
+    ];
+
+    const warmImages = [
       "assets/images/slides/screen-3-cs-fit.png",
       "assets/images/slides/screen-4-cs-fit.png",
       "assets/images/slides/screen-5-project-3.png",
       "assets/images/slides/screen-6-cs-fit.png",
       "assets/images/slides/screen-7-cs-fit.png",
       "assets/images/slides/screen-8-bg.png"
-    ].map(preloadImage);
+    ];
 
-    const minVisibleTime = prefersReducedMotion ? 700 : 3800;
-    const absoluteMaxTime = prefersReducedMotion ? 1200 : 5200;
+    const criticalImages = immediateImages.map(preloadImage);
+    warmImages.forEach((src) => preloadImage(src));
+
+    const minVisibleTime = prefersReducedMotion ? 650 : 2600;
+    const absoluteMaxTime = prefersReducedMotion ? 1100 : 4300;
     const started = Date.now();
     let done = false;
 
