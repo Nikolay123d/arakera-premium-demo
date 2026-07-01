@@ -8,9 +8,9 @@
   <meta property="og:title" content="Zadost v systemu ARAKERA">
   <meta property="og:description" content="System ARAKERA zpracovava odeslanou zadost.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/slides/preloader-cs.png">
-  <link rel="preload" href="assets/images/slides/screen-8-bg.png" as="image">
-  <link rel="stylesheet" href="assets/css/style.css?v=slides-final-12">
+  <meta property="og:image" content="assets/images/slides/preloader-cs-fast.jpg">
+  <link rel="preload" href="assets/images/slides/screen-8-bg-fast.jpg" as="image">
+  <link rel="stylesheet" href="assets/css/style.css?v=slides-final-14">
   <style>
     * {
       box-sizing: border-box;
@@ -47,7 +47,7 @@
       left: auto !important;
       right: auto !important;
       width: 100% !important;
-      max-width: 620px !important;
+      max-width: min(620px, calc(100vw - 32px)) !important;
       margin: 0 auto !important;
       transform: none !important;
       border-radius: 32px !important;
@@ -73,9 +73,12 @@
       box-sizing: border-box;
       justify-content: center;
       text-align: center;
+      padding-inline: 14px !important;
+      font-size: clamp(0.72rem, 2.9vw, 0.9rem) !important;
+      letter-spacing: 0.02em !important;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
       .processing-page {
         min-height: 100svh;
         padding-left: max(16px, env(safe-area-inset-left));

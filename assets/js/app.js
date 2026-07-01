@@ -247,6 +247,27 @@
     });
   }
 
+  function revealPreloaderImageWhenReady() {
+    if (!preloaderImage) return;
+    const reveal = () => preloaderImage.classList.add("is-ready");
+    if (preloaderImage.complete && preloaderImage.naturalWidth > 0) {
+      if (preloaderImage.decode) {
+        preloaderImage.decode().then(reveal).catch(reveal);
+        return;
+      }
+      reveal();
+      return;
+    }
+    preloaderImage.addEventListener("load", () => {
+      if (preloaderImage.decode) {
+        preloaderImage.decode().then(reveal).catch(reveal);
+        return;
+      }
+      reveal();
+    }, { once: true });
+    preloaderImage.addEventListener("error", reveal, { once: true });
+  }
+
   function getScreenVideo(index) {
     return screens[index]?.querySelector(".screen-video--slide") || null;
   }
@@ -531,21 +552,22 @@
 
   function initPreloader() {
     if (!preloader) return;
+    revealPreloaderImageWhenReady();
 
     const immediateImages = [
       preloaderImage?.getAttribute("src"),
-      "assets/images/slides/screen-1-cs-fit.png",
-      "assets/images/slides/screen-1-en-fit.png",
-      "assets/images/slides/screen-2-cs-fit.png"
+      "assets/images/slides/screen-1-cs-fit-fast.jpg",
+      "assets/images/slides/screen-1-en-fit-fast.jpg",
+      "assets/images/slides/screen-2-cs-fit-fast.jpg"
     ];
 
     const warmImages = [
-      "assets/images/slides/screen-3-cs-fit.png",
-      "assets/images/slides/screen-4-cs-fit.png",
-      "assets/images/slides/screen-5-project-3.png",
-      "assets/images/slides/screen-6-cs-fit.png",
-      "assets/images/slides/screen-7-cs-fit.png",
-      "assets/images/slides/screen-8-bg.png"
+      "assets/images/slides/screen-3-cs-fit-fast.jpg",
+      "assets/images/slides/screen-4-cs-fit-fast.jpg",
+      "assets/images/slides/screen-5-project-3-fast.jpg",
+      "assets/images/slides/screen-6-cs-fit-fast.jpg",
+      "assets/images/slides/screen-7-cs-fit-fast.jpg",
+      "assets/images/slides/screen-8-bg-fast.jpg"
     ];
 
     const criticalImages = immediateImages.map(preloadImage);
