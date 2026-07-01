@@ -30,12 +30,79 @@
   let lastSnapAt = 0;
   let lastWallpaperSeek = 0;
   let scrollRaf = 0;
+  let resizeTimer = 0;
+  let lastViewportWidth = window.innerWidth;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const wallpaperTimeline = [0.2, 2.2, 4.4, 6.6, 8.8, 11, 13.2, 15.4];
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
+  }
+
+  function getScreenVideo(index) {
+    return screens[index]?.querySelector(".screen-video--slide") || null;
+  }
+
+  function prepareVideo(video) {
+    if (!video) return;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    try {
+      if (video.readyState < 2) video.load();
+    } catch (_) {
+      // Browsers can reject load() while changing pages; the poster keeps the screen stable.
+    }
+  }
+
+  function requestVideoPlay(video) {
+    if (!video) return;
+    prepareVideo(video);
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        video.classList.add("is-fallback");
+      });
+    }
+  }
+
+  function waitForVideo(video, timeout = 2600) {
+    return new Promise((resolve) => {
+      if (!video || video.readyState >= 3) {
+        resolve();
+        return;
+      }
+      const timer = window.setTimeout(resolve, timeout);
+      const done = () => {
+        window.clearTimeout(timer);
+        resolve();
+      };
+      video.addEventListener("canplay", done, { once: true });
+      video.addEventListener("loadeddata", done, { once: true });
+      video.addEventListener("error", done, { once: true });
+    });
+  }
+
+  function warmNearbyScreens(index) {
+    [index + 1, index + 2].forEach((next) => {
+      const video = getScreenVideo(next);
+      if (video) prepareVideo(video);
+    });
+  }
+
+  function activateScreenVideo(index, restart = false) {
+    const video = getScreenVideo(index);
+    if (!video) return;
+    prepareVideo(video);
+    if (restart && video.readyState >= 1) {
+      try {
+        video.currentTime = 0;
+      } catch (_) {
+        // Some mobile browsers do not allow seeking before enough metadata is ready.
+      }
+    }
+    requestVideoPlay(video);
   }
 
   function setActive(index) {
@@ -54,6 +121,8 @@
     }
 
     syncWallpaperToScreen(activeIndex);
+    activateScreenVideo(activeIndex, true);
+    warmNearbyScreens(activeIndex);
   }
 
   function syncWallpaperToScreen(index) {
@@ -226,17 +295,16 @@
         }
       }, { once: true });
       video.addEventListener("canplay", () => video.classList.add("is-ready"), { once: true });
-      const playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {
-          video.classList.add("is-fallback");
-        });
+      prepareVideo(video);
+      if (video.id === "globalWallpaperVideo" || video.id === "preloaderVideo" || video.closest(".screen.is-active")) {
+        requestVideoPlay(video);
       }
     });
   }
 
   function hidePreloader() {
     if (!preloader) return;
+    activateScreenVideo(0, true);
     preloader.classList.add("is-hidden");
     setTimeout(() => {
       preloader.remove();
@@ -246,6 +314,8 @@
   function initPreloader() {
     if (!preloader) return;
 
+    const firstScreenVideo = getScreenVideo(0);
+    const secondScreenVideo = getScreenVideo(1);
     const criticalPosters = [
       "assets/images/arakera-screen-1-poster.jpg",
       "assets/images/arakera-screen-2-poster.jpg",
@@ -260,48 +330,66 @@
       });
     });
 
-    const criticalVideos = [
-      preloaderVideo,
-      ...Array.from(document.querySelectorAll(".screen-video--slide"))
-    ].filter(Boolean);
-    criticalVideos.forEach((video) => {
-      video.preload = "auto";
-      video.load();
-      const playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {});
-      }
+    [preloaderVideo, firstScreenVideo, secondScreenVideo].forEach((video) => {
+      prepareVideo(video);
     });
+    requestVideoPlay(preloaderVideo);
+    requestVideoPlay(firstScreenVideo);
+    warmNearbyScreens(0);
 
-    const minTime = prefersReducedMotion ? 450 : 6400;
-    const maxTime = prefersReducedMotion ? 900 : 7800;
+    const minVisibleTime = prefersReducedMotion ? 450 : 5600;
+    const absoluteMaxTime = prefersReducedMotion ? 900 : 9800;
     const started = Date.now();
+    let videoVisibleAt = started;
+    let preloaderVideoReady = !preloaderVideo;
     let done = false;
+
+    function markPreloaderVideoReady() {
+      if (preloaderVideoReady) return;
+      preloaderVideoReady = true;
+      videoVisibleAt = Date.now();
+      preloaderVideo.classList.add("is-ready");
+      requestVideoPlay(preloaderVideo);
+    }
+
+    if (preloaderVideo) {
+      if (preloaderVideo.readyState >= 3) {
+        markPreloaderVideoReady();
+      } else {
+        preloaderVideo.addEventListener("canplay", markPreloaderVideoReady, { once: true });
+        preloaderVideo.addEventListener("loadeddata", markPreloaderVideoReady, { once: true });
+        preloaderVideo.addEventListener("error", () => {
+          preloaderVideoReady = true;
+          videoVisibleAt = Date.now();
+        }, { once: true });
+      }
+    }
 
     function tryHide() {
       if (done) return;
-      const elapsed = Date.now() - started;
-      if (elapsed < minTime) {
-        setTimeout(tryHide, minTime - elapsed);
+      const now = Date.now();
+      const totalElapsed = now - started;
+      const visibleElapsed = now - videoVisibleAt;
+      if (!preloaderVideoReady && totalElapsed < absoluteMaxTime) {
+        setTimeout(tryHide, 180);
+        return;
+      }
+      if (visibleElapsed < minVisibleTime && totalElapsed < absoluteMaxTime) {
+        setTimeout(tryHide, Math.min(220, minVisibleTime - visibleElapsed));
         return;
       }
       done = true;
+      activateScreenVideo(0, true);
       hidePreloader();
     }
 
     Promise.allSettled([
       ...criticalPosters,
-      ...criticalVideos.map((video) => new Promise((resolve) => {
-        if (video.readyState >= 3) {
-          resolve();
-          return;
-        }
-        video.addEventListener("canplay", resolve, { once: true });
-        video.addEventListener("error", resolve, { once: true });
-      }))
+      waitForVideo(firstScreenVideo, 3200),
+      waitForVideo(secondScreenVideo, 3400)
     ]).then(tryHide);
 
-    setTimeout(tryHide, maxTime);
+    setTimeout(tryHide, absoluteMaxTime);
   }
 
   function setSubmitProgress(value, text) {
@@ -419,7 +507,13 @@
 
     window.addEventListener("keydown", handleKeydown);
     window.addEventListener("resize", () => {
-      goTo(activeIndex, "auto");
+      const widthDelta = Math.abs(window.innerWidth - lastViewportWidth);
+      lastViewportWidth = window.innerWidth;
+      if (widthDelta < 24) return;
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        goTo(activeIndex, "auto");
+      }, 140);
     });
 
     const form = document.getElementById("projectForm");
