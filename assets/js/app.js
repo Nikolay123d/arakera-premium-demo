@@ -76,6 +76,7 @@
       systemStepRealization2: "Zapojení personálu",
       systemStepRealization3: "Koordinace realizace",
       systemStepRealization4: "Kapitálová účast podle potřeby",
+      resourcesIntro: "Všechny projekty se rozvíjejí prostřednictvím čtyř operačních zdrojů.",
       resourceTechTitle: "Technologie",
       resourceTech1: "Klimatizace a komfort",
       resourceTech2: "Automatizace",
@@ -89,7 +90,7 @@
       resourceBuild2: "Prémiové rekonstrukce",
       resourceBuild3: "Komerční projekty",
       resourceBuild4: "Infrastruktura",
-      resourceBuild5: "Koordinace dodavatelu",
+      resourceBuild5: "Koordinace dodavatelů",
       resourceBuild6: "Kontrola kvality a rozpočtu",
       resourcePeopleTitle: "Personál",
       resourcePeople1: "Operační týmy",
@@ -218,6 +219,7 @@
       systemStepRealization2: "Staff involvement",
       systemStepRealization3: "Implementation coordination",
       systemStepRealization4: "Capital participation if needed",
+      resourcesIntro: "All projects develop through four operational resources.",
       resourceTechTitle: "Technology",
       resourceTech1: "Climate control and comfort",
       resourceTech2: "Automation",
@@ -333,6 +335,68 @@
     return translations[currentLang]?.[key] || translations.cs[key] || key;
   }
 
+  function stabilizeHeaderControls() {
+    const controls = document.querySelector(".header-actions");
+    const csButton = document.querySelector('[data-set-lang="cs"]');
+    const enButton = document.querySelector('[data-set-lang="en"]');
+    const menuButton = document.getElementById("menuToggle");
+    if (!controls || !csButton || !enButton || !menuButton) return;
+
+    Object.assign(controls.style, {
+      position: "fixed",
+      top: "12px",
+      right: "0",
+      width: "156px",
+      height: "52px",
+      padding: "0",
+      display: "block",
+      overflow: "visible",
+      zIndex: "999",
+      pointerEvents: "auto"
+    });
+
+    [
+      [csButton, "108px"],
+      [enButton, "72px"]
+    ].forEach(([button, right]) => {
+      Object.assign(button.style, {
+        position: "fixed",
+        top: "20px",
+        right,
+        width: "32px",
+        height: "32px",
+        minWidth: "32px",
+        maxWidth: "32px",
+        minHeight: "32px",
+        maxHeight: "32px",
+        padding: "0",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        opacity: "1",
+        visibility: "visible",
+        pointerEvents: "auto"
+      });
+    });
+
+    Object.assign(menuButton.style, {
+      position: "fixed",
+      top: "12px",
+      right: "12px",
+      width: "50px",
+      height: "50px",
+      minWidth: "50px",
+      maxWidth: "50px",
+      minHeight: "50px",
+      maxHeight: "50px",
+      padding: "0",
+      display: "grid",
+      opacity: "1",
+      visibility: "visible",
+      pointerEvents: "auto"
+    });
+  }
+
   function setLanguage(lang) {
     currentLang = lang === "en" ? "en" : "cs";
     document.documentElement.lang = currentLang;
@@ -364,6 +428,7 @@
     document.querySelectorAll("[data-set-lang]").forEach((button) => {
       button.classList.toggle("is-active", button.dataset.setLang === currentLang);
     });
+    stabilizeHeaderControls();
   }
 
   function initLanguage() {
@@ -870,6 +935,7 @@
       if (widthDelta < 24) return;
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(() => {
+        stabilizeHeaderControls();
         goTo(activeIndex, "auto");
       }, 140);
     });
@@ -948,6 +1014,7 @@
     initVideo();
     initEvents();
     initPreloader();
+    stabilizeHeaderControls();
     const queryScreen = Number(new URLSearchParams(window.location.search).get("screen"));
     if (Number.isFinite(queryScreen) && queryScreen >= 1 && queryScreen <= screens.length) {
       const index = queryScreen - 1;
