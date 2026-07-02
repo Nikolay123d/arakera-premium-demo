@@ -50,6 +50,8 @@
       navContact: "Kontakt",
       enterSystem: "Vstoupit do systému",
       entryPoint: "Vstupní bod",
+      cityHeroTitle: "SPOJUJEME SPRÁVNĚ PROJEKTY SE SPRÁVNÝMI LIDMI",
+      cityHeroText: "Projekty vstupují do systému ARAKERA pro strukturovanou koordinaci, rozvoj a realizaci prostřednictvím technologií, lidí a kapitálu.",
       partnerRequest: "Partnerský dotaz",
       remainingQuestions: "Zůstaly otázky?",
       systemResources: "Zdroje systému",
@@ -190,6 +192,8 @@
       navContact: "Contact",
       enterSystem: "Enter system",
       entryPoint: "Entry point",
+      cityHeroTitle: "WE CONNECT THE RIGHT PROJECTS WITH THE RIGHT PEOPLE",
+      cityHeroText: "Projects enter the ARAKERA system for structured coordination, development and implementation through technology, people and capital.",
       partnerRequest: "Partner request",
       remainingQuestions: "Any questions?",
       systemResources: "System resources",
@@ -495,6 +499,7 @@
 
   function setActive(index) {
     activeIndex = clamp(index, 0, screens.length - 1);
+    document.body.dataset.activeScreen = String(activeIndex);
 
     screens.forEach((screen, i) => {
       screen.classList.toggle("is-active", i === activeIndex);
@@ -606,7 +611,7 @@
   function goForm() {
     closeMenu();
     closeModals();
-    goTo(7);
+    goTo(screens.length - 1);
     setTimeout(() => {
       const input = document.querySelector('#projectForm input:not([type="hidden"]), #projectForm textarea');
       if (input) input.focus({ preventScroll: true });
