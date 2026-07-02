@@ -3882,8 +3882,8 @@ h3 {
   inset: 0;
   z-index: -3;
   background:
-    linear-gradient(180deg, rgba(2, 7, 11, 0.42), rgba(2, 7, 11, 0.74)),
-    url("../images/slides/screen-8-bg-fast.jpg") center / cover no-repeat;
+    linear-gradient(180deg, rgba(2, 7, 11, 0.18), rgba(2, 7, 11, 0.46)),
+    url("../images/slides/arakera-common-live-bg.jpg") center / cover no-repeat;
 }
 
 .projects-live-bg::after {
@@ -5363,13 +5363,14 @@ body.asset-slide-mode #screen-3.screen--html-live,
 body.asset-slide-mode #screen-4.screen--html-live,
 body.asset-slide-mode #screen-6.screen--html-live {
   background:
-    radial-gradient(circle at 50% 106%, rgba(156, 246, 96, 0.18), transparent 28%),
-    radial-gradient(circle at 15% 8%, rgba(42, 216, 255, 0.1), transparent 30%),
-    linear-gradient(180deg, #020810 0%, #04121a 52%, #02070b 100%) !important;
+    linear-gradient(180deg, rgba(2, 8, 16, 0.16), rgba(2, 8, 16, 0.44)),
+    url("../images/slides/arakera-common-live-bg.jpg") center / cover no-repeat !important;
   background-image:
-    radial-gradient(circle at 50% 106%, rgba(156, 246, 96, 0.18), transparent 28%),
-    radial-gradient(circle at 15% 8%, rgba(42, 216, 255, 0.1), transparent 30%),
-    linear-gradient(180deg, #020810 0%, #04121a 52%, #02070b 100%) !important;
+    linear-gradient(180deg, rgba(2, 8, 16, 0.16), rgba(2, 8, 16, 0.44)),
+    url("../images/slides/arakera-common-live-bg.jpg") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 body.asset-slide-mode #screen-2.screen--html-live .screen-media--slide,
