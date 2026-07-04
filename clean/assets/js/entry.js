@@ -452,7 +452,15 @@
   let touchIgnored = false;
   let activeScreenId = window.location.hash ? window.location.hash.slice(1) : "entry-screen-01";
 
+  const isEditableTarget = (target) => Boolean(
+    target && typeof target.closest === "function" &&
+      target.closest("input, textarea, select")
+  );
+
+  const isEditingField = () => isEditableTarget(document.activeElement);
+
   const setScreenHeight = () => {
+    if (isEditingField()) return;
     const viewport = window.visualViewport;
     const height = Math.round(viewport && viewport.height ? viewport.height : window.innerHeight);
     if (height > 0) {
@@ -461,6 +469,7 @@
   };
 
   const realignToActiveScreen = () => {
+    if (isEditingField()) return;
     if (isProgrammaticScroll) return;
     const target = document.getElementById(activeScreenId) || nearestScreen();
     if (!target) return;
@@ -469,6 +478,10 @@
   };
 
   const handleViewportChange = () => {
+    if (isEditingField()) {
+      window.clearTimeout(viewportSettleTimer);
+      return;
+    }
     setScreenHeight();
     window.clearTimeout(viewportSettleTimer);
     viewportSettleTimer = window.setTimeout(realignToActiveScreen, 90);
@@ -476,10 +489,7 @@
 
   setScreenHeight();
 
-  const shouldIgnoreGestureTarget = (target) => Boolean(
-    target && typeof target.closest === "function" &&
-      target.closest("input, textarea, select")
-  );
+  const shouldIgnoreGestureTarget = isEditableTarget;
 
   const stepToAdjacentScreen = (direction) => {
     const screens = getScreens();
@@ -545,9 +555,11 @@
   };
 
   const settleScroll = () => {
+    if (isEditingField()) return;
     if (isSettling || isProgrammaticScroll) return;
     window.clearTimeout(settleTimer);
     settleTimer = window.setTimeout(() => {
+      if (isEditingField()) return;
       const target = nearestScreen();
       if (!target) return;
 
@@ -750,6 +762,9 @@
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
+        }
+        if (document.activeElement && typeof document.activeElement.blur === "function") {
+          document.activeElement.blur();
         }
         saveLocalRequest();
         if (note) note.textContent = t("applyNoteSending");
