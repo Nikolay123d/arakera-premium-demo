@@ -2983,6 +2983,11 @@
   background: #020813;
 }
 
+.entry-page:not(.entry-page--service-active) .loading-screen,
+.entry-page:not(.entry-page--service-active) .success-screen {
+  display: none;
+}
+
 .apply-screen__background,
 .loading-screen__background,
 .success-screen__background {

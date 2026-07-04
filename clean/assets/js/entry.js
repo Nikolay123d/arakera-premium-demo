@@ -300,7 +300,10 @@
       screen: ".apply-screen",
       image: ".apply-screen__background",
       readyClass: "apply-screen--image-ready"
-    },
+    }
+  ];
+
+  const serviceScreenConfigs = [
     {
       screen: ".loading-screen",
       image: ".loading-screen__background",
@@ -312,6 +315,13 @@
       readyClass: "success-screen--image-ready"
     }
   ];
+
+  const allScreenConfigs = [...screenConfigs, ...serviceScreenConfigs];
+  const serviceScreenIds = new Set(["loading-screen-10", "success-screen-11"]);
+
+  const setServiceMode = (targetId) => {
+    document.body.classList.toggle("entry-page--service-active", serviceScreenIds.has(targetId));
+  };
 
   const nudgeElement = (node) => {
     if (!node || typeof node.animate !== "function") return;
@@ -366,6 +376,7 @@
     if (!window.location.hash) return;
     const target = document.getElementById(window.location.hash.slice(1));
     if (!target) return;
+    setServiceMode(target.id);
     if (target.id === "entry-screen-01" && window.scrollY < 8) {
       setActiveScreen(target.id);
       return;
@@ -424,6 +435,7 @@
   const goToScreen = (targetId, behavior = "smooth") => {
     const target = document.getElementById(targetId);
     if (!target) return;
+    setServiceMode(targetId);
     scrollToTarget(target, behavior);
     if (window.history && typeof window.history.replaceState === "function") {
       window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${targetId}`);
@@ -775,7 +787,7 @@
     setProgress(0, t("loadingText"));
   };
 
-  screenConfigs.forEach((config) => {
+  allScreenConfigs.forEach((config) => {
     const screen = document.querySelector(config.screen);
     if (!screen) return;
 
