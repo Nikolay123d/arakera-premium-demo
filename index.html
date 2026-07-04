@@ -1,435 +1,68 @@
 <!doctype html>
-<html lang="cs" data-lang="cs" translate="no">
+<html lang="cs" translate="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ARAKERA Group - Project Coordination & Integration Hub</title>
-  <meta name="description" content="ARAKERA Group - osm obrazovek pro koordinaci projektu, systemove zdroje, partnerstvi, geografii a kontakt.">
-  <meta name="google" content="notranslate">
-  <meta property="og:title" content="ARAKERA Group - Project Coordination & Integration Hub">
-  <meta property="og:description" content="Premium prezentace ARAKERA Group: system, zdroje, projekty, partnerstvi, mapa a kontakt.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/slides/screen-city-clean-bg.jpg">
-  <link rel="preload" href="assets/images/slides/preloader-cs-fast.jpg" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/images/slides/screen-city-clean-bg.jpg" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/images/slides/arakera-common-live-bg.jpg" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/images/slides/screen-7-cs-fit-fast.jpg" as="image">
-  <link rel="preload" href="assets/images/slides/screen-8-bg-fast.jpg" as="image">
-  <link rel="stylesheet" href="assets/css/style.css?v=slides-final-32">
-  <link rel="stylesheet" href="assets/css/final-overrides.css?v=slides-final-42">
+  <meta name="robots" content="noindex">
+  <title>ARAKERA draft disabled</title>
+  <style>
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: #020813;
+      color: #f7f9fc;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    main {
+      width: min(560px, 100%);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 7vw, 48px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0 0 28px;
+      color: rgba(247, 249, 252, 0.78);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    a {
+      display: inline-grid;
+      min-height: 48px;
+      align-items: center;
+      padding: 0 22px;
+      border: 1px solid rgba(191, 255, 115, 0.78);
+      border-radius: 999px;
+      color: #06120c;
+      background: #bfff73;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 0 22px rgba(191, 255, 115, 0.24);
+    }
+  </style>
 </head>
-<body class="asset-slide-mode notranslate" translate="no">
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#screen-1" aria-label="ARAKERA Group">
-      <span class="mark">A</span>
-      <span><b>ARAKERA</b><small>GROUP</small></span>
-    </a>
-    <nav class="top-nav" aria-label="Navigation">
-      <a href="#screen-2" data-i18n="navSystem">System</a>
-      <a href="#screen-4" data-i18n="navMap">Mapa</a>
-      <a href="#screen-8" data-i18n="navContact">Kontakt</a>
-    </nav>
-    <div class="header-actions">
-      <button class="lang is-active" type="button" data-set-lang="cs">CS</button>
-      <button class="lang" type="button" data-set-lang="en">EN</button>
-      <button class="menu-toggle" type="button" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <aside class="section-dots" aria-label="Screen navigation">
-    <button class="is-active" data-go="0" aria-label="Screen 1"></button>
-    <button data-go="1" aria-label="Screen 2"></button>
-    <button data-go="2" aria-label="Screen 3"></button>
-    <button data-go="3" aria-label="Screen 4"></button>
-    <button data-go="4" aria-label="Screen 5"></button>
-    <button data-go="5" aria-label="Screen 6"></button>
-    <button data-go="6" aria-label="Screen 7"></button>
-    <button data-go="7" aria-label="Screen 8"></button>
-    <button data-go="8" aria-label="Screen 9"></button>
-  </aside>
-
-  <div class="progress-rail" aria-hidden="true"><i id="screenProgress"></i></div>
-
-  <main class="snap-shell" id="snapShell">
-    <section class="screen screen--media-only screen--photo is-active" id="screen-1" data-index="0">
-      <img class="screen-media screen-media--slide lang-image" style="object-fit:contain!important;object-position:center center!important;background:#02070b!important;" src="assets/images/slides/preloader-cs-fast.jpg" data-cs="assets/images/slides/preloader-cs-fast.jpg" data-en="assets/images/slides/preloader-cs-fast.jpg" alt="ARAKERA Group" loading="eager" decoding="sync" fetchpriority="high">
-      <div class="entry-scroll-cue" aria-hidden="true">
-        <span class="entry-scroll-cue__arrow"></span>
-        <span class="entry-scroll-cue__line"></span>
-      </div>
-    </section>
-
-    <section class="screen screen--city-live" id="screen-city" data-index="1">
-      <div class="city-live-content">
-        <h1 data-i18n="cityHeroTitle">SPOJUJEME SPRÁVNĚ
-PROJEKTY
-SE SPRÁVNÝMI LIDMI</h1>
-        <p data-i18n="cityHeroText">Projekty vstupují do systému ARAKERA pro strukturovanou koordinaci, rozvoj a realizaci prostřednictvím technologií, lidí a kapitálu.</p>
-        <button class="city-live-button" type="button" data-open-modal="system">
-          <span data-i18n="enterSystem">Vstoupit do systému</span>
-          <i aria-hidden="true">→</i>
-        </button>
-      </div>
-      <div class="city-scroll-cue" aria-hidden="true">
-        <span></span>
-        <i></i>
-        <b></b>
-      </div>
-    </section>
-
-    <section class="screen screen--media-only screen--photo screen--html-live screen--system-live" id="screen-2" data-index="1">
-      <img class="screen-media screen-media--slide lang-image" hidden aria-hidden="true" style="display:none!important;" src="assets/images/slides/screen-2-cs-fit-fast.jpg" data-cs="assets/images/slides/screen-2-cs-fit-fast.jpg" data-en="assets/images/slides/screen-2-en-fit-fast.jpg" alt="">
-      <div class="live-screen live-system">
-        <div class="live-topline">
-          <span>02</span>
-          <b data-i18n="systemEntryEyebrow">Vstup projektu do systemu</b>
-        </div>
-        <div class="live-brand-lockup" aria-hidden="true">
-          <span class="live-mark">A</span>
-          <strong>ARAKERA <small>GROUP</small></strong>
-        </div>
-        <div class="live-title-block">
-          <h2 data-i18n="systemEntryTitle">VSTUP DO SYSTÉMU ARAKERA</h2>
-          <p data-i18n="systemEntrySubtitle">Každý projekt prochází strukturovaným procesem vstupu před koordinací, rozvojem a realizací.</p>
-        </div>
-        <div class="system-entry-grid">
-          <article class="system-entry-card">
-            <span>01</span>
-            <h3 data-i18n="systemStepSubmitTitle">Podání projektu</h3>
-            <p data-i18n="systemStepSubmitText">Představíte svou ideu, potřebu nebo možnost.</p>
-            <ul>
-              <li data-i18n="systemStepSubmit1">Byznys idea</li>
-              <li data-i18n="systemStepSubmit2">Investiční možnost</li>
-              <li data-i18n="systemStepSubmit3">Stavební nebo technický projekt</li>
-              <li data-i18n="systemStepSubmit4">Kádrový nebo operační požadavek</li>
-            </ul>
-          </article>
-          <article class="system-entry-card">
-            <span>02</span>
-            <h3 data-i18n="systemStepAnalysisTitle">Strukturování a analýza</h3>
-            <p data-i18n="systemStepAnalysisText">Projekt se vyhodnotí a zařadí do struktury ARAKERA.</p>
-            <ul>
-              <li data-i18n="systemStepAnalysis1">Určení rozsahu projektu</li>
-              <li data-i18n="systemStepAnalysis2">Analýza potřebných zdrojů</li>
-              <li data-i18n="systemStepAnalysis3">Odhad potenciálu a účelnosti</li>
-              <li data-i18n="systemStepAnalysis4">Model koordinace</li>
-            </ul>
-          </article>
-          <article class="system-entry-card">
-            <span>03</span>
-            <h3 data-i18n="systemStepRealizationTitle">Integrace a realizace</h3>
-            <p data-i18n="systemStepRealizationText">Projekt přechází do fáze aktivní koordinace.</p>
-            <ul>
-              <li data-i18n="systemStepRealization1">Integrace technologií</li>
-              <li data-i18n="systemStepRealization2">Zapojení personálu</li>
-              <li data-i18n="systemStepRealization3">Koordinace realizace</li>
-              <li data-i18n="systemStepRealization4">Kapitálová účast podle potřeby</li>
-            </ul>
-          </article>
-        </div>
-        <p class="live-system-note">
-          <span data-i18n="systemNoteLine1">Projekty se neposuzují jako samostatné úkoly.</span>
-          <span data-i18n="systemNoteLine2">Integrují se do strukturovaného systému,</span>
-          <span data-i18n="systemNoteLine3">vytvořeného pro realizaci.</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="screen screen--media-only screen--photo screen--html-live screen--resources-live" id="screen-3" data-index="2">
-      <img class="screen-media screen-media--slide lang-image" hidden aria-hidden="true" style="display:none!important;" src="assets/images/slides/screen-3-cs-fit-fast.jpg" data-cs="assets/images/slides/screen-3-cs-fit-fast.jpg" data-en="assets/images/slides/screen-3-en-fit-fast.jpg" alt="">
-      <div class="live-screen live-resources">
-        <p class="resource-intro" data-i18n="resourcesIntro">Všechny projekty se rozvíjejí prostřednictvím čtyř operačních zdrojů.</p>
-        <div class="resource-card resource-card--tech">
-          <i aria-hidden="true">⚙</i>
-          <h3 data-i18n="resourceTechTitle">Technologie</h3>
-          <ul>
-            <li data-i18n="resourceTech1">Klimatizace a komfort</li>
-            <li data-i18n="resourceTech2">Automatizace</li>
-            <li data-i18n="resourceTech3">Bezpečnostní systémy</li>
-            <li data-i18n="resourceTech4">Kontrola přístupu</li>
-            <li data-i18n="resourceTech5">Chytré zámky</li>
-            <li data-i18n="resourceTech6">Smart Home</li>
-            <li data-i18n="resourceTech7">Integrace technologií</li>
-          </ul>
-        </div>
-        <div class="resource-card resource-card--build">
-          <i aria-hidden="true">▥</i>
-          <h3 data-i18n="resourceBuildTitle">Stavebnictví</h3>
-          <ul>
-            <li data-i18n="resourceBuild1">Stavební materiály</li>
-            <li data-i18n="resourceBuild2">Prémiové rekonstrukce</li>
-            <li data-i18n="resourceBuild3">Komerční projekty</li>
-            <li data-i18n="resourceBuild4">Infrastruktura</li>
-            <li data-i18n="resourceBuild5">Koordinace dodavatelů</li>
-            <li data-i18n="resourceBuild6">Kontrola kvality a rozpočtu</li>
-          </ul>
-        </div>
-        <div class="resource-card resource-card--people">
-          <i aria-hidden="true">♙</i>
-          <h3 data-i18n="resourcePeopleTitle">Personál</h3>
-          <ul>
-            <li data-i18n="resourcePeople1">Operační týmy</li>
-            <li data-i18n="resourcePeople2">Výroba</li>
-            <li data-i18n="resourcePeople3">Sklady</li>
-            <li data-i18n="resourcePeople4">Logistika</li>
-            <li data-i18n="resourcePeople5">Zajištění personálu</li>
-            <li data-i18n="resourcePeople6">Koordinace týmů</li>
-          </ul>
-        </div>
-        <div class="resource-card resource-card--capital">
-          <i aria-hidden="true">$</i>
-          <h3 data-i18n="resourceCapitalTitle">Kapitál</h3>
-          <ul>
-            <li data-i18n="resourceCapital1">Investiční účast</li>
-            <li data-i18n="resourceCapital2">Rozvoj podnikání</li>
-            <li data-i18n="resourceCapital3">Finanční optimalizace</li>
-            <li data-i18n="resourceCapital4">Strategická partnerství</li>
-            <li data-i18n="resourceCapital5">Tvorba dlouhodobé hodnoty</li>
-          </ul>
-        </div>
-        <p class="resource-principle">
-          <strong data-i18n="resourceFormula">Technologie + Stavebnictví + Personál + Kapitál</strong>
-          <span data-i18n="resourcePrinciple">Společně tvoří operační systém ARAKERA.</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="screen screen--media-only screen--photo screen--html-live screen--map-live" id="screen-4" data-index="3">
-      <img class="screen-media screen-media--slide lang-image" hidden aria-hidden="true" style="display:none!important;" src="assets/images/slides/screen-4-cs-fit-fast.jpg" data-cs="assets/images/slides/screen-4-cs-fit-fast.jpg" data-en="assets/images/slides/screen-4-en-fit-fast.jpg" alt="">
-      <div class="live-screen live-map">
-        <div class="live-topline">
-          <span>04</span>
-          <b data-i18n="navProjectMap">Mapa projektu</b>
-        </div>
-        <h2 data-i18n="mapTitle">Mapa projektu</h2>
-        <ol class="project-map-flow">
-          <li><span>01</span><b data-i18n="mapStepProject">Projekt</b></li>
-          <li><span>02</span><b data-i18n="mapStepAnalysis">Analýza</b></li>
-          <li><span>03</span><b data-i18n="mapStepTech">Technologie</b></li>
-          <li><span>04</span><b data-i18n="mapStepBuild">Stavebnictví</b></li>
-          <li><span>05</span><b data-i18n="mapStepPeople">Personál</b></li>
-          <li><span>06</span><b data-i18n="mapStepCapital">Kapitál</b></li>
-          <li><span>07</span><b data-i18n="mapStepRealization">Realizace</b></li>
-          <li><span>08</span><b data-i18n="mapStepValue">Dlouhodobá hodnota</b></li>
-        </ol>
-        <p data-i18n="mapNote">Projekty jsou řízeny prostřednictvím systému ARAKERA v souladu s vašimi potřebami, dostupnými zdroji a potenciálem růstu.</p>
-        <button class="slide-hotspot slide-hotspot--visible slide-hotspot--s4-questions" type="button" data-go-form>
-          <span>04</span>
-          <strong data-i18n="remainingQuestions">Zůstaly otázky?</strong>
-          <small data-i18n="navProjectMap">Mapa projektu</small>
-        </button>
-      </div>
-    </section>
-
-    <section class="screen screen--projects-live" id="screen-5" data-index="4">
-      <div class="projects-live-bg" aria-hidden="true"></div>
-      <div class="projects-live-panel">
-        <div class="projects-live-head">
-          <p><span>05</span> <b data-i18n="projectsEyebrow">Projekty</b></p>
-          <h2 data-i18n="projectsTitle">Tri priklady vstupu do systemu</h2>
-          <small data-i18n="projectsSubtitle">Kazdy projekt ma oblast, roli ARAKERA a meritelny vysledek.</small>
-        </div>
-        <div class="projects-live-grid" aria-label="Project examples">
-          <button class="project-card-live" type="button" data-open-modal="caseAccess">
-            <img src="assets/images/arakera-case-access-control.png" alt="">
-            <span data-i18n="caseAccessArea">Bezpecnost</span>
-            <strong data-i18n="caseAccessTitle">Integrace systemu kontroly pristupu</strong>
-            <em data-i18n="caseAccessText">ARAKERA koordinuje technickou integraci, odpovedne partnery a realizaci systemu kontroly pristupu pro objekt.</em>
-            <small data-i18n="caseOpen">Detail projektu</small>
-          </button>
-          <button class="project-card-live" type="button" data-open-modal="caseRenovation">
-            <img src="assets/images/arakera-case-renovation.png" alt="">
-            <span data-i18n="caseRenovationArea">Vystavba</span>
-            <strong data-i18n="caseRenovationTitle">Rekonstrukce rezidencniho objektu</strong>
-            <em data-i18n="caseRenovationText">Projekt prochazi koordinaci dodavatelu, kontrolou kvality, rozpoctovou disciplinou a strukturovanym pohybem k vysledku.</em>
-            <small data-i18n="caseOpen">Detail projektu</small>
-          </button>
-          <button class="project-card-live" type="button" data-open-modal="caseStaff">
-            <img src="assets/images/slides/screen-5-project-3-fast.jpg" alt="">
-            <span data-i18n="caseStaffArea">Obnovitelna energetika</span>
-            <strong data-i18n="caseStaffTitle">Vyber technickeho personalu</strong>
-            <em data-i18n="caseStaffText">ARAKERA zajistila vyhledani, vyber a koordinaci montazniku a elektrotechnickych specialistu pro realizaci energetickych projektu. Vysledek: vice nez 200 kvalifikovanych specialistu behem jednoho roku.</em>
-            <small data-i18n="caseOpen">Detail projektu</small>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen screen--media-only screen--photo screen--html-live screen--partners-live" id="screen-6" data-index="5">
-      <img class="screen-media screen-media--slide lang-image" hidden aria-hidden="true" style="display:none!important;" src="assets/images/slides/screen-6-cs-fit-fast.jpg" data-cs="assets/images/slides/screen-6-cs-fit-fast.jpg" data-en="assets/images/slides/screen-6-en-fit-fast.jpg" alt="">
-      <div class="live-screen live-partners">
-        <div class="live-topline">
-          <span>06</span>
-          <b data-i18n="navPartners">Partneři</b>
-        </div>
-        <h2 data-i18n="partnersTitle">Partnerství</h2>
-        <div class="partners-live-grid">
-          <article>
-            <h3 data-i18n="partnersTechTitle">Technologičtí partneři</h3>
-            <p data-i18n="partnersTechText">Výrobci a dodavatelé technologií.</p>
-            <div class="partner-names">
-              <strong>Schlieger</strong>
-              <strong>inpros</strong>
-            </div>
-          </article>
-          <article>
-            <h3 data-i18n="partnersBuildTitle">Partneři z realizace</h3>
-            <p data-i18n="partnersBuildText">Stavební, montážní a servisní společnosti.</p>
-            <div class="partner-names">
-              <strong>prodoma</strong>
-              <strong>imp metal</strong>
-              <strong>DZ Praha</strong>
-            </div>
-          </article>
-          <article>
-            <h3 data-i18n="partnersBusinessTitle">Obchodní partneři</h3>
-            <p data-i18n="partnersBusinessText">Investoři, developeři a vlastníci projektů.</p>
-            <div class="partner-names">
-              <strong>Svaz průmyslu a dopravy ČR</strong>
-              <strong>Santander</strong>
-              <strong>Barrandov</strong>
-            </div>
-          </article>
-        </div>
-        <p class="partners-note" data-i18n="partnersNote">Silné projekty vznikají díky silným partnerstvím.</p>
-      </div>
-    </section>
-
-    <section class="screen screen--media-only screen--photo" id="screen-7" data-index="6">
-      <img class="screen-media screen-media--slide lang-image" style="position:absolute!important;inset:0!important;width:100vw!important;height:100dvh!important;object-fit:fill!important;object-position:center center!important;background:#02070b!important;" src="assets/images/slides/screen-7-cs-fit-fast.jpg" data-cs="assets/images/slides/screen-7-cs-fit-fast.jpg" data-en="assets/images/slides/screen-7-en-fit-fast.jpg" alt="Geograficke pokryti ARAKERA">
-    </section>
-
-    <section class="screen screen--contact-photo" id="screen-8" data-index="7">
-      <img class="screen-media screen-media--slide" src="assets/images/slides/screen-8-bg-fast.jpg" alt="">
-      <div class="contact-live-panel">
-        <div class="contact-live-copy">
-          <p><span>08</span> <b data-i18n="contactEyebrow">Kontakt</b></p>
-          <h2 data-i18n="contactTitle">Connect with ARAKERA</h2>
-          <div class="contact-points contact-points-live">
-            <span data-i18n="pointProjects">✓ Projekty</span>
-            <span data-i18n="pointPartnerships">✓ Partnerstvi</span>
-            <span data-i18n="pointInvestments">✓ Investice</span>
-            <span data-i18n="pointBusiness">✓ Obchodni prilezitosti</span>
-          </div>
-        </div>
-        <form class="slide-contact-form slide-contact-form--live" id="projectForm" autocomplete="on">
-          <input type="hidden" name="access_key" value="ac5ffe92-57e4-41fb-a905-3dc1c154cd2e">
-          <input type="hidden" name="subject" value="ARAKERA - nova zadost">
-          <input type="hidden" name="from_name" value="ARAKERA landing">
-          <input type="hidden" name="source_page" value="arakera-screen-flow">
-          <input class="slide-input" name="name" type="text" data-i18n-placeholder="namePlaceholder" placeholder="Vase jmeno" required aria-label="Name">
-          <input class="slide-input" name="company" type="text" data-i18n-placeholder="companyPlaceholder" placeholder="Firma / tym" aria-label="Company">
-          <input class="slide-input" name="project" type="text" data-i18n-placeholder="projectPlaceholder" placeholder="Projekt / moznost" aria-label="Project">
-          <textarea class="slide-input" name="message" rows="4" data-i18n-placeholder="messagePlaceholder" placeholder="Co je potreba strukturovat?" aria-label="Message"></textarea>
-          <button class="btn btn--gold btn--wide" type="submit" data-i18n="submitButton">Vstoupit do systemu</button>
-          <a class="form-facebook-link" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener" data-i18n="quickFacebook">Rychly kontakt pres Facebook</a>
-          <p class="form-note slide-form-note" id="formNote" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
+<body>
+  <main>
+    <h1>Draft Disabled</h1>
+    <p>Old ARAKERA demo is disabled. The clean current build is available on the new project link.</p>
+    <a href="./clean/">Open Clean ARAKERA</a>
   </main>
-
-  <div class="menu-panel notranslate" id="menuPanel" aria-hidden="true" translate="no">
-    <div class="menu-panel__inner">
-      <button class="menu-close" type="button" id="menuClose" aria-label="Close menu">×</button>
-      <p>ARAKERA GROUP</p>
-      <a href="#screen-1" data-menu-link data-i18n="navEntry">Vstup</a>
-      <a href="#screen-2" data-menu-link data-i18n="navSystem">System</a>
-      <a href="#screen-3" data-menu-link data-i18n="navResources">Zdroje</a>
-      <a href="#screen-4" data-menu-link data-i18n="navProjectMap">Mapa projektu</a>
-      <a href="#screen-5" data-menu-link data-i18n="navProjects">Projekty</a>
-      <a href="#screen-6" data-menu-link data-i18n="navPartners">Partneri</a>
-      <a href="#screen-7" data-menu-link data-i18n="navGeo">Geografie</a>
-      <a href="#screen-8" data-menu-link data-i18n="navContact">Kontakt</a>
-      <button class="btn btn--gold btn--wide" type="button" data-open-modal="project" data-i18n="partnerRequest">Partnersky dotaz</button>
-      <button class="btn btn--ghost btn--wide" type="button" data-open-modal="system" data-i18n="enterSystem">Vstoupit do systemu</button>
-    </div>
-  </div>
-
-  <div class="modal" id="systemModal" aria-hidden="true">
-    <div class="modal__card">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <p class="eyebrow" data-i18n="systemModalEyebrow">Vstup do systemu</p>
-      <h2 data-i18n="systemModalTitle">Jednotny scenar vstupu projektu</h2>
-      <p data-i18n="systemModalText">Projekt vstupuje do systemu ARAKERA, prochazi podanim, analyzou, zdroji, partnerstvimi a pohybem k realizaci.</p>
-      <p class="system-modal-note" data-i18n="systemModalIntegration">Projekty se neposuzuji jako samostatne ukoly. Integruji se do strukturovaneho systemu vytvoreneho pro realizaci.</p>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="submitButton">Vstoupit do systemu</button>
-    </div>
-  </div>
-
-  <div class="modal" id="projectModal" aria-hidden="true">
-    <div class="modal__card modal__card--wide">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <p class="eyebrow" data-i18n="projectModalEyebrow">Partnersky dotaz</p>
-      <h2 data-i18n="projectModalTitle">Kratka struktura pro start</h2>
-      <div class="modal-grid">
-        <span data-i18n="projectModalStep1">1. Cil projektu</span>
-        <span data-i18n="projectModalStep2">2. Mesto / zeme</span>
-        <span data-i18n="projectModalStep3">3. Lide a partneri</span>
-        <span data-i18n="projectModalStep4">4. Zdroje a rozpocet</span>
-      </div>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="goForm">Prejit k formulari</button>
-    </div>
-  </div>
-
-  <div class="modal" id="caseAccessModal" aria-hidden="true">
-    <div class="modal__card modal__card--wide case-modal">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <img src="assets/images/arakera-case-access-control.png" alt="">
-      <p class="eyebrow" data-i18n="caseAccessArea">Bezpecnost</p>
-      <h2 data-i18n="caseAccessTitle">Integrace systemu kontroly pristupu</h2>
-      <p data-i18n="caseAccessText">ARAKERA koordinuje technickou integraci, odpovedne partnery a realizaci systemu kontroly pristupu pro objekt.</p>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="submitSimilar">Podat podobny projekt</button>
-    </div>
-  </div>
-
-  <div class="modal" id="caseRenovationModal" aria-hidden="true">
-    <div class="modal__card modal__card--wide case-modal">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <img src="assets/images/arakera-case-renovation.png" alt="">
-      <p class="eyebrow" data-i18n="caseRenovationArea">Vystavba</p>
-      <h2 data-i18n="caseRenovationTitle">Rekonstrukce rezidencniho objektu</h2>
-      <p data-i18n="caseRenovationText">Projekt prochazi koordinaci dodavatelu, kontrolou kvality, rozpoctovou disciplinou a strukturovanym pohybem k vysledku.</p>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="submitSimilar">Podat podobny projekt</button>
-    </div>
-  </div>
-
-  <div class="modal" id="caseStaffModal" aria-hidden="true">
-    <div class="modal__card modal__card--wide case-modal">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <img src="assets/images/slides/screen-5-project-3-fast.jpg" alt="">
-      <p class="eyebrow" data-i18n="caseStaffArea">Obnovitelna energetika</p>
-      <h2 data-i18n="caseStaffTitle">Vyber technickeho personalu</h2>
-      <p data-i18n="caseStaffText">ARAKERA zajistila vyhledani, vyber a koordinaci montazniku a elektrotechnickych specialistu pro realizaci energetickych projektu. Vysledek: vice nez 200 kvalifikovanych specialistu behem jednoho roku.</p>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="submitSimilar">Podat podobny projekt</button>
-    </div>
-  </div>
-
-  <div class="modal" id="contactModal" aria-hidden="true">
-    <div class="modal__card">
-      <button class="modal__close" type="button" data-close-modal>×</button>
-      <p class="eyebrow" data-i18n="quickContact">Rychly kontakt</p>
-      <h2 data-i18n="contactModalTitle">Potrebujete rychle vysvetlit projekt?</h2>
-      <p data-i18n="contactModalText">Nechte kratkou informaci o zadani. System ukaze smer, moznost a dalsi krok pro rozhovor.</p>
-      <button class="btn btn--gold btn--wide" type="button" data-go-form data-i18n="goForm">Prejit k formulari</button>
-    </div>
-  </div>
-
-  <div class="submit-loader" id="submitLoader" aria-hidden="true">
-    <div class="submit-loader__card">
-      <div class="submit-loader__orbit" aria-hidden="true">
-        <span></span><i></i>
-      </div>
-      <p>ARAKERA GROUP</p>
-      <h2 data-i18n="sendingTitle">Odesilani zadosti do systemu</h2>
-      <div class="submit-loader__bar"><i id="submitProgressBar"></i></div>
-      <strong id="submitProgressValue">0%</strong>
-      <small id="submitProgressText" data-i18n="sendingText">Strukturujeme data projektu...</small>
-    </div>
-  </div>
-
-  <script src="assets/js/app.js?v=slides-final-42"></script>
 </body>
 </html>
