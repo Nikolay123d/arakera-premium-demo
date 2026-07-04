@@ -82,7 +82,16 @@
       mapStepCapital: "KAPITÁL",
       mapStepDelivery: "REALIZACE",
       mapStepValue: "DLOUHODOBÁ HODNOTA",
-      mapFooter: "Projekty jsou řízeny prostřednictvím systému <strong>ARAKERA</strong><br>podle potřeb, dostupných zdrojů<br>a potenciálu rozvoje."
+      mapFooter: "Projekty jsou řízeny prostřednictvím systému <strong>ARAKERA</strong><br>podle potřeb, dostupných zdrojů<br>a potenciálu rozvoje.",
+      navPartners: "Partneři",
+      partnersTitle: "PARTNERSTVÍ",
+      partnersTechTitle: "TECHNOLOGIČTÍ<br>PARTNEŘI",
+      partnersTechCopy: "Výrobci a dodavatelé<br>technologií.",
+      partnersRealizationTitle: "PARTNEŘI<br>Z REALIZACE",
+      partnersRealizationCopy: "Stavební, montážní<br>a servisní společnosti.",
+      partnersBusinessTitle: "BIZNIS PARTNEŘI",
+      partnersBusinessCopy: "Investoři, developeři<br>a klíčoví partneři<br>projektů.",
+      partnersFooter: "Silné projekty vznikají díky silným partnerstvím."
     },
     en: {
       navEntry: "Entry",
@@ -166,7 +175,16 @@
       mapStepCapital: "CAPITAL",
       mapStepDelivery: "DELIVERY",
       mapStepValue: "LONG-TERM VALUE",
-      mapFooter: "Projects are managed through the <strong>ARAKERA</strong> system<br>according to needs, available resources<br>and development potential."
+      mapFooter: "Projects are managed through the <strong>ARAKERA</strong> system<br>according to needs, available resources<br>and development potential.",
+      navPartners: "Partners",
+      partnersTitle: "PARTNERSHIPS",
+      partnersTechTitle: "TECHNOLOGY<br>PARTNERS",
+      partnersTechCopy: "Technology producers<br>and suppliers.",
+      partnersRealizationTitle: "DELIVERY<br>PARTNERS",
+      partnersRealizationCopy: "Construction, installation<br>and service companies.",
+      partnersBusinessTitle: "BUSINESS PARTNERS",
+      partnersBusinessCopy: "Investors, developers<br>and key project partners.",
+      partnersFooter: "Strong projects are built through strong partnerships."
     }
   };
 
@@ -203,6 +221,11 @@
       screen: ".case-screen",
       image: ".case-screen__background",
       readyClass: "case-screen--image-ready"
+    },
+    {
+      screen: ".partners-screen",
+      image: ".partners-screen__background",
+      readyClass: "partners-screen--image-ready"
     }
   ];
 
@@ -464,6 +487,7 @@
       nav.classList.toggle("entry-nav--resources-active", targetId === "resources-screen-04");
       nav.classList.toggle("entry-nav--map-active", targetId === "map-screen-05");
       nav.classList.toggle("entry-nav--cases-active", targetId === "case-screen-06");
+      nav.classList.toggle("entry-nav--partners-active", targetId === "partners-screen-07");
     }
 
     document.querySelectorAll("[data-entry-target]").forEach((button) => {

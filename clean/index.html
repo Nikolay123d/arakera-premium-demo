@@ -12,10 +12,10 @@
   <meta property="og:image" content="assets/img/entry-bg-reference.jpg">
   <link rel="preload" href="assets/img/entry-bg-reference.jpg?v=screen01-a-apex" as="image" fetchpriority="high">
   <link rel="preload" href="assets/img/city-bg-clean.jpg?v=screen02-native-12" as="image">
-  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=cases-screen-02" as="image">
-  <link rel="preload" href="assets/img/cases/case-access-control.jpg?v=cases-screen-02" as="image">
-  <link rel="preload" href="assets/img/cases/case-interior-renovation.jpg?v=cases-screen-02" as="image">
-  <link rel="stylesheet" href="assets/css/entry.css?v=cases-screen-02">
+  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=partners-screen-03" as="image">
+  <link rel="preload" href="assets/img/cases/case-access-control.jpg?v=partners-screen-03" as="image">
+  <link rel="preload" href="assets/img/cases/case-interior-renovation.jpg?v=partners-screen-03" as="image">
+  <link rel="stylesheet" href="assets/css/entry.css?v=partners-screen-03">
 </head>
 <body class="entry-page">
   <nav class="entry-nav" aria-label="ARAKERA screen navigation" aria-expanded="false">
@@ -37,6 +37,7 @@
       <button class="entry-nav__link" type="button" data-entry-target="resources-screen-04" data-i18n="navResources">Resources</button>
       <button class="entry-nav__link" type="button" data-entry-target="map-screen-05" data-i18n="navMap">Map</button>
       <button class="entry-nav__link" type="button" data-entry-target="case-screen-06" data-i18n="navCases">Cases</button>
+      <button class="entry-nav__link" type="button" data-entry-target="partners-screen-07" data-i18n="navPartners">Partners</button>
     </div>
 
     <div class="entry-nav__dots" aria-label="Screen switcher">
@@ -46,6 +47,7 @@
       <button class="entry-nav__dot" type="button" data-entry-target="resources-screen-04" aria-label="Screen 4"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="map-screen-05" aria-label="Screen 5"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="case-screen-06" aria-label="Screen 6"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="partners-screen-07" aria-label="Screen 7"></button>
     </div>
   </nav>
 
@@ -441,7 +443,7 @@
     <section class="case-screen" id="case-screen-06" aria-label="ARAKERA Group project cases">
       <img
         class="case-screen__background"
-        src="assets/img/system-bg-clean.jpg?v=cases-screen-02"
+        src="assets/img/system-bg-clean.jpg?v=partners-screen-03"
         alt=""
         width="624"
         height="1280"
@@ -454,7 +456,7 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image"
-              src="assets/img/cases/case-access-control.jpg?v=cases-screen-02"
+              src="assets/img/cases/case-access-control.jpg?v=partners-screen-03"
               alt="Access control system project case"
               width="1004"
               height="1280"
@@ -467,7 +469,7 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image"
-              src="assets/img/cases/case-interior-renovation.jpg?v=cases-screen-02"
+              src="assets/img/cases/case-interior-renovation.jpg?v=partners-screen-03"
               alt="Interior renovation project case"
               width="759"
               height="1280"
@@ -479,7 +481,7 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image case-screen__image--solar"
-              src="assets/img/cases/case-solar-reference.jpg?v=cases-screen-02"
+              src="assets/img/cases/case-solar-reference.jpg?v=partners-screen-03"
               alt="Solar power project case"
               width="573"
               height="1280"
@@ -496,8 +498,85 @@
         </div>
       </div>
     </section>
+
+    <section class="partners-screen" id="partners-screen-07" aria-label="ARAKERA Group partnerships">
+      <img
+        class="partners-screen__background"
+        src="assets/img/system-bg-clean.jpg?v=partners-screen-03"
+        alt=""
+        width="624"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="partners-screen__content">
+        <header class="partners-screen__header">
+          <h2 class="partners-screen__title" data-i18n="partnersTitle">PARTNERSTVÍ</h2>
+          <div class="partners-screen__title-rule" aria-hidden="true">
+            <span class="partners-screen__title-line"></span>
+            <span class="partners-screen__title-dot"></span>
+            <span class="partners-screen__title-line"></span>
+          </div>
+        </header>
+
+        <div class="partners-screen__cards" aria-label="ARAKERA partner categories">
+          <article class="partners-screen__card partners-screen__card--tech">
+            <svg class="partners-screen__icon" viewBox="0 0 72 72" aria-hidden="true">
+              <path class="partners-screen__icon-line" d="M31 8h10l2 9 7 3 8-5 7 7-5 8 3 7 9 2v10l-9 2-3 7 5 8-7 7-8-5-7 3-2 9H31l-2-9-7-3-8 5-7-7 5-8-3-7-9-2V39l9-2 3-7-5-8 7-7 8 5 7-3 2-9Z" />
+              <circle class="partners-screen__icon-line" cx="36" cy="44" r="14" />
+            </svg>
+            <h3 class="partners-screen__card-title" data-i18n-html="partnersTechTitle">TECHNOLOGIČTÍ<br>PARTNEŘI</h3>
+            <p class="partners-screen__card-copy" data-i18n-html="partnersTechCopy">Výrobci a dodavatelé<br>technologií.</p>
+            <span class="partners-screen__card-rule" aria-hidden="true"></span>
+          </article>
+
+          <article class="partners-screen__card partners-screen__card--realization">
+            <svg class="partners-screen__icon" viewBox="0 0 72 72" aria-hidden="true">
+              <path class="partners-screen__icon-line" d="M31 8h10l2 9 7 3 8-5 7 7-5 8 3 7 9 2v10l-9 2-3 7 5 8-7 7-8-5-7 3-2 9H31l-2-9-7-3-8 5-7-7 5-8-3-7-9-2V39l9-2 3-7-5-8 7-7 8 5 7-3 2-9Z" />
+              <circle class="partners-screen__icon-line" cx="36" cy="44" r="13" />
+              <path class="partners-screen__icon-line" d="M50 50l11 6M52 41l10-3" />
+            </svg>
+            <h3 class="partners-screen__card-title" data-i18n-html="partnersRealizationTitle">PARTNEŘI<br>Z REALIZACE</h3>
+            <p class="partners-screen__card-copy" data-i18n-html="partnersRealizationCopy">Stavební, montážní<br>a servisní společnosti.</p>
+            <span class="partners-screen__card-rule" aria-hidden="true"></span>
+            <div class="partners-screen__logos partners-screen__logos--realization">
+              <span class="partners-screen__logo partners-screen__logo--prodoma">prodoma</span>
+              <span class="partners-screen__logo partners-screen__logo--imp"><strong>imp</strong> metal</span>
+              <span class="partners-screen__logo partners-screen__logo--dz">DZ PRAHA</span>
+            </div>
+          </article>
+
+          <article class="partners-screen__card partners-screen__card--business">
+            <svg class="partners-screen__icon" viewBox="0 0 72 72" aria-hidden="true">
+              <circle class="partners-screen__icon-line" cx="36" cy="20" r="12" />
+              <path class="partners-screen__icon-line" d="M23 58V45c0-8 6-14 13-14s13 6 13 14v13M15 58V47c0-6 5-11 11-11M57 58V47c0-6-5-11-11-11" />
+              <circle class="partners-screen__icon-line" cx="18" cy="31" r="8" />
+              <circle class="partners-screen__icon-line" cx="54" cy="31" r="8" />
+            </svg>
+            <h3 class="partners-screen__card-title" data-i18n-html="partnersBusinessTitle">BIZNIS PARTNEŘI</h3>
+            <p class="partners-screen__card-copy" data-i18n-html="partnersBusinessCopy">Investoři, developeři<br>a klíčoví partneři<br>projektů.</p>
+            <span class="partners-screen__card-rule" aria-hidden="true"></span>
+            <div class="partners-screen__logos partners-screen__logos--business">
+              <span class="partners-screen__logo partners-screen__logo--sp">sp <small>Svaz průmyslu<br>a dopravy ČR</small></span>
+              <span class="partners-screen__logo partners-screen__logo--santander">Santander</span>
+              <span class="partners-screen__logo partners-screen__logo--barrandov">☆ barrandov</span>
+            </div>
+          </article>
+        </div>
+
+        <footer class="partners-screen__footer">
+          <p data-i18n="partnersFooter">Silné projekty vznikají díky silným partnerstvím.</p>
+          <div class="partners-screen__footer-rule" aria-hidden="true">
+            <span class="partners-screen__footer-line"></span>
+            <span class="partners-screen__footer-dot"></span>
+            <span class="partners-screen__footer-line"></span>
+          </div>
+        </footer>
+      </div>
+    </section>
   </main>
 
-  <script src="assets/js/entry.js?v=cases-screen-02"></script>
+  <script src="assets/js/entry.js?v=partners-screen-03"></script>
 </body>
 </html>
