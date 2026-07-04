@@ -6,6 +6,7 @@
       navProcess: "Proces",
       navResources: "Zdroje",
       navMap: "Mapa",
+      navCases: "Případy",
       entryTagline: "PROJECT COORDINATION &amp;<br>INTEGRATION HUB",
       brandSubtitle: "Project Coordination & Integration Hub",
       cityHeadline1: "SPOJUJEME SPRÁVNÉ PROJEKTY",
@@ -89,6 +90,7 @@
       navProcess: "Process",
       navResources: "Resources",
       navMap: "Map",
+      navCases: "Cases",
       entryTagline: "PROJECT COORDINATION &amp;<br>INTEGRATION HUB",
       brandSubtitle: "Project Coordination & Integration Hub",
       cityHeadline1: "CONNECTING THE RIGHT PROJECTS",
@@ -196,6 +198,11 @@
       screen: ".map-screen",
       image: ".map-screen__background",
       readyClass: "map-screen--image-ready"
+    },
+    {
+      screen: ".case-screen",
+      image: ".case-screen__background",
+      readyClass: "case-screen--image-ready"
     }
   ];
 
@@ -456,6 +463,7 @@
       nav.classList.toggle("entry-nav--system-active", targetId === "system-screen-03");
       nav.classList.toggle("entry-nav--resources-active", targetId === "resources-screen-04");
       nav.classList.toggle("entry-nav--map-active", targetId === "map-screen-05");
+      nav.classList.toggle("entry-nav--cases-active", targetId === "case-screen-06");
     }
 
     document.querySelectorAll("[data-entry-target]").forEach((button) => {
@@ -501,6 +509,58 @@
     }
 
     setLanguage(getStoredLanguage());
+  };
+
+  const setupCaseCarousel = () => {
+    const carousel = document.querySelector("[data-case-carousel]");
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll("[data-case-slide]"));
+    const dots = Array.from(document.querySelectorAll("[data-case-target]"));
+    if (!slides.length || !dots.length) return;
+
+    let scrollFrame = 0;
+
+    const getActiveIndex = () => {
+      const viewportCenter = carousel.scrollLeft + (carousel.clientWidth / 2);
+      return slides.reduce((nearest, slide, index) => {
+        const slideCenter = slide.offsetLeft + (slide.offsetWidth / 2);
+        const distance = Math.abs(slideCenter - viewportCenter);
+        if (!nearest || distance < nearest.distance) return { index, distance };
+        return nearest;
+      }, null).index;
+    };
+
+    const setActiveCase = (index) => {
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        dot.classList.toggle("case-screen__dot--active", isActive);
+        dot.setAttribute("aria-pressed", String(isActive));
+      });
+    };
+
+    const updateActiveCase = () => {
+      scrollFrame = 0;
+      setActiveCase(getActiveIndex());
+    };
+
+    carousel.addEventListener("scroll", () => {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(updateActiveCase);
+    }, { passive: true });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.getAttribute("data-case-target"));
+        const slide = slides[index];
+        if (!slide) return;
+        carousel.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+        setActiveCase(index);
+      });
+    });
+
+    carousel.scrollTo({ left: 0, behavior: "auto" });
+    setActiveCase(0);
   };
 
   screenConfigs.forEach((config) => {
@@ -552,6 +612,7 @@
     if (hasInitialized) return;
     hasInitialized = true;
     setupNavigation();
+    setupCaseCarousel();
     setScreenHeight();
     alignHashTarget();
     window.setTimeout(alignHashTarget, 80);

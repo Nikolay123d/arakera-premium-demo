@@ -2031,6 +2031,200 @@
   }
 }
 
+.case-screen {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: var(--entry-screen-height, 100svh);
+  min-height: var(--entry-screen-height, 100svh);
+  overflow: hidden;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  background: #020813;
+}
+
+.case-screen__background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.case-screen--image-ready .case-screen__background {
+  opacity: 1;
+}
+
+.case-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 82% 13%, rgba(42, 143, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 18% 86%, rgba(132, 255, 65, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(2, 8, 19, 0.08), rgba(2, 8, 19, 0.2));
+  pointer-events: none;
+}
+
+.case-screen__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  width: 100%;
+  padding: clamp(76px, 9.4vh, 112px) 0 max(24px, calc(env(safe-area-inset-bottom) + 18px));
+  font-family: "Montserrat", "Avenir Next", Arial, Helvetica, sans-serif;
+}
+
+.case-screen__carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case-screen__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.case-screen__slide {
+  display: grid;
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  place-items: center;
+  padding: 0 clamp(20px, 5vw, 56px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.case-screen__image {
+  display: block;
+  width: auto;
+  max-width: min(100%, 760px);
+  max-height: calc(var(--entry-screen-height, 100svh) - 156px);
+  object-fit: contain;
+  border-radius: clamp(14px, 2.2vw, 24px);
+  box-shadow:
+    0 0 0 1px rgba(65, 199, 255, 0.14),
+    0 20px 52px rgba(0, 0, 0, 0.4),
+    0 0 42px rgba(0, 218, 255, 0.1);
+}
+
+.case-screen__image--solar {
+  max-width: min(100%, 520px);
+}
+
+.case-screen__pager {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  width: 100%;
+  margin-top: 14px;
+  pointer-events: auto;
+}
+
+.case-screen__dot {
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(224, 229, 235, 0.48);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+}
+
+.case-screen__dot--active {
+  background: #12dff1;
+  box-shadow:
+    0 0 10px rgba(18, 223, 241, 0.82),
+    0 0 20px rgba(18, 223, 241, 0.4);
+}
+
+@media (max-width: 600px) {
+  .case-screen__content {
+    padding: 78px 0 max(22px, calc(env(safe-area-inset-bottom) + 16px));
+  }
+
+  .case-screen__slide {
+    padding-inline: 24px;
+  }
+
+  .case-screen__image {
+    max-width: min(100%, 528px);
+    max-height: calc(var(--entry-screen-height, 100svh) - 138px);
+    border-radius: 15px;
+  }
+
+  .case-screen__image--solar {
+    max-width: min(100%, 430px);
+  }
+
+  .case-screen__pager {
+    gap: 15px;
+    margin-top: 11px;
+  }
+
+  .case-screen__dot {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@media (max-width: 430px) {
+  .case-screen__content {
+    padding-top: 74px;
+    padding-bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
+  }
+
+  .case-screen__slide {
+    padding-inline: 18px;
+  }
+
+  .case-screen__image {
+    max-width: min(100%, 390px);
+    max-height: calc(var(--entry-screen-height, 100svh) - 121px);
+    border-radius: 13px;
+  }
+
+  .case-screen__image--solar {
+    max-width: min(100%, 354px);
+  }
+}
+
+@media (max-width: 430px) and (max-height: 760px) {
+  .case-screen__content {
+    padding-top: 65px;
+    padding-bottom: max(14px, calc(env(safe-area-inset-bottom) + 10px));
+  }
+
+  .case-screen__image {
+    max-height: calc(var(--entry-screen-height, 100svh) - 100px);
+  }
+
+  .case-screen__pager {
+    margin-top: 8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .entry-screen__scroll-arrow,
   .city-screen__scroll-arrow {

@@ -12,8 +12,10 @@
   <meta property="og:image" content="assets/img/entry-bg-reference.jpg">
   <link rel="preload" href="assets/img/entry-bg-reference.jpg?v=screen01-a-apex" as="image" fetchpriority="high">
   <link rel="preload" href="assets/img/city-bg-clean.jpg?v=screen02-native-12" as="image">
-  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=map-screen-18" as="image">
-  <link rel="stylesheet" href="assets/css/entry.css?v=map-screen-18">
+  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=cases-screen-02" as="image">
+  <link rel="preload" href="assets/img/cases/case-access-control.jpg?v=cases-screen-02" as="image">
+  <link rel="preload" href="assets/img/cases/case-interior-renovation.jpg?v=cases-screen-02" as="image">
+  <link rel="stylesheet" href="assets/css/entry.css?v=cases-screen-02">
 </head>
 <body class="entry-page">
   <nav class="entry-nav" aria-label="ARAKERA screen navigation" aria-expanded="false">
@@ -34,6 +36,7 @@
       <button class="entry-nav__link" type="button" data-entry-target="system-screen-03" data-i18n="navProcess">Process</button>
       <button class="entry-nav__link" type="button" data-entry-target="resources-screen-04" data-i18n="navResources">Resources</button>
       <button class="entry-nav__link" type="button" data-entry-target="map-screen-05" data-i18n="navMap">Map</button>
+      <button class="entry-nav__link" type="button" data-entry-target="case-screen-06" data-i18n="navCases">Cases</button>
     </div>
 
     <div class="entry-nav__dots" aria-label="Screen switcher">
@@ -42,6 +45,7 @@
       <button class="entry-nav__dot" type="button" data-entry-target="system-screen-03" aria-label="Screen 3"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="resources-screen-04" aria-label="Screen 4"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="map-screen-05" aria-label="Screen 5"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="case-screen-06" aria-label="Screen 6"></button>
     </div>
   </nav>
 
@@ -433,8 +437,67 @@
         </p>
       </div>
     </section>
+
+    <section class="case-screen" id="case-screen-06" aria-label="ARAKERA Group project cases">
+      <img
+        class="case-screen__background"
+        src="assets/img/system-bg-clean.jpg?v=cases-screen-02"
+        alt=""
+        width="624"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="case-screen__content">
+        <div class="case-screen__carousel" data-case-carousel aria-label="Project case carousel">
+          <article class="case-screen__slide" data-case-slide>
+            <img
+              class="case-screen__image"
+              src="assets/img/cases/case-access-control.jpg?v=cases-screen-02"
+              alt="Access control system project case"
+              width="1004"
+              height="1280"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            >
+          </article>
+
+          <article class="case-screen__slide" data-case-slide>
+            <img
+              class="case-screen__image"
+              src="assets/img/cases/case-interior-renovation.jpg?v=cases-screen-02"
+              alt="Interior renovation project case"
+              width="759"
+              height="1280"
+              loading="lazy"
+              decoding="async"
+            >
+          </article>
+
+          <article class="case-screen__slide" data-case-slide>
+            <img
+              class="case-screen__image case-screen__image--solar"
+              src="assets/img/cases/case-solar-reference.jpg?v=cases-screen-02"
+              alt="Solar power project case"
+              width="573"
+              height="1280"
+              loading="lazy"
+              decoding="async"
+            >
+          </article>
+        </div>
+
+        <div class="case-screen__pager" aria-label="Project case slides">
+          <button class="case-screen__dot case-screen__dot--active" type="button" data-case-target="0" aria-label="Case 1"></button>
+          <button class="case-screen__dot" type="button" data-case-target="1" aria-label="Case 2"></button>
+          <button class="case-screen__dot" type="button" data-case-target="2" aria-label="Case 3"></button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="assets/js/entry.js?v=map-screen-18"></script>
+  <script src="assets/js/entry.js?v=cases-screen-02"></script>
 </body>
 </html>
