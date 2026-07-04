@@ -91,7 +91,39 @@
       partnersRealizationCopy: "Stavební, montážní<br>a servisní společnosti.",
       partnersBusinessTitle: "BIZNIS PARTNEŘI",
       partnersBusinessCopy: "Investoři, developeři<br>a klíčoví partneři<br>projektů.",
-      partnersFooter: "Silné projekty vznikají díky silným partnerstvím."
+      partnersFooter: "Silné projekty vznikají díky silným partnerstvím.",
+      navGeo: "Geografie",
+      geoTitle: "GEOGRAFIE PŮSOBNOSTI",
+      geoCopy1: "Koordinace projektů<br>v centrální Evropě.",
+      geoCopy2: "Rozšiřujeme působnost<br>po celé Evropě.",
+      navApply: "Dotaz",
+      navLoading: "Zpracování",
+      navSuccess: "Hotovo",
+      applyKicker: "PARTNERSKÝ DOTAZ",
+      applyTitle: "VSTUPNÍ FORMULÁŘ ARAKERA",
+      applyLead: "Popište projekt, příležitost nebo zdroj. Systém připraví první směr koordinace.",
+      applyNameLabel: "Jméno",
+      applyNamePlaceholder: "Vaše jméno",
+      applyContactLabel: "Kontakt",
+      applyContactPlaceholder: "Telefon / e-mail / Messenger",
+      applyProjectLabel: "Projekt",
+      applyProjectPlaceholder: "Projekt / možnost / partnerství",
+      applyMessageLabel: "Zadání",
+      applyMessagePlaceholder: "Co je potřeba strukturovat?",
+      applySubmit: "ODESLAT DO SYSTÉMU",
+      applyFacebook: "Rychlý kontakt přes Facebook",
+      applyNoteSending: "Žádost vstupuje do systému ARAKERA...",
+      loadingTitle: "ODESÍLÁNÍ ŽÁDOSTI DO SYSTÉMU",
+      loadingText: "Strukturujeme data projektu...",
+      loadingStepCheck: "Kontrolujeme kontaktní údaje...",
+      loadingStepStructure: "Strukturujeme zadání projektu...",
+      loadingStepRoute: "Připravujeme směr koordinace...",
+      loadingStepFinal: "Žádost přijata. Otevíráme finální stránku...",
+      successTitle: "ŽÁDOST<br>VSTOUPILA<br>DO SYSTÉMU",
+      successCopy: "Systém ARAKERA zpracovává vaši žádost. Ozveme se na uvedený kontakt po zpracování.",
+      successStatus: "Zpracování žádosti je aktivní",
+      successFacebook: "Rychlý kontakt přes Facebook",
+      successBack: "Zpět na web klienta"
     },
     en: {
       navEntry: "Entry",
@@ -184,7 +216,39 @@
       partnersRealizationCopy: "Construction, installation<br>and service companies.",
       partnersBusinessTitle: "BUSINESS PARTNERS",
       partnersBusinessCopy: "Investors, developers<br>and key project partners.",
-      partnersFooter: "Strong projects are built through strong partnerships."
+      partnersFooter: "Strong projects are built through strong partnerships.",
+      navGeo: "Geography",
+      geoTitle: "GEOGRAPHY OF OPERATIONS",
+      geoCopy1: "Project coordination<br>in Central Europe.",
+      geoCopy2: "We are expanding<br>across Europe.",
+      navApply: "Request",
+      navLoading: "Processing",
+      navSuccess: "Done",
+      applyKicker: "PARTNER REQUEST",
+      applyTitle: "ARAKERA INTAKE FORM",
+      applyLead: "Describe the project, opportunity or resource. The system prepares the first coordination direction.",
+      applyNameLabel: "Name",
+      applyNamePlaceholder: "Your name",
+      applyContactLabel: "Contact",
+      applyContactPlaceholder: "Phone / e-mail / Messenger",
+      applyProjectLabel: "Project",
+      applyProjectPlaceholder: "Project / opportunity / partnership",
+      applyMessageLabel: "Brief",
+      applyMessagePlaceholder: "What needs to be structured?",
+      applySubmit: "SEND INTO SYSTEM",
+      applyFacebook: "Quick contact via Facebook",
+      applyNoteSending: "The request is entering the ARAKERA system...",
+      loadingTitle: "SENDING REQUEST INTO SYSTEM",
+      loadingText: "Structuring project data...",
+      loadingStepCheck: "Checking contact details...",
+      loadingStepStructure: "Structuring the project brief...",
+      loadingStepRoute: "Preparing the coordination direction...",
+      loadingStepFinal: "Request accepted. Opening the final page...",
+      successTitle: "REQUEST<br>ENTERED<br>THE SYSTEM",
+      successCopy: "The ARAKERA system is processing your request. We will contact you after processing.",
+      successStatus: "Request processing is active",
+      successFacebook: "Quick contact via Facebook",
+      successBack: "Back to the client website"
     }
   };
 
@@ -226,6 +290,26 @@
       screen: ".partners-screen",
       image: ".partners-screen__background",
       readyClass: "partners-screen--image-ready"
+    },
+    {
+      screen: ".geo-screen",
+      image: ".geo-screen__map",
+      readyClass: "geo-screen--image-ready"
+    },
+    {
+      screen: ".apply-screen",
+      image: ".apply-screen__background",
+      readyClass: "apply-screen--image-ready"
+    },
+    {
+      screen: ".loading-screen",
+      image: ".loading-screen__background",
+      readyClass: "loading-screen--image-ready"
+    },
+    {
+      screen: ".success-screen",
+      image: ".success-screen__background",
+      readyClass: "success-screen--image-ready"
     }
   ];
 
@@ -317,6 +401,11 @@
     document.querySelectorAll("[data-i18n-html]").forEach((node) => {
       const key = node.getAttribute("data-i18n-html");
       if (dictionary[key]) node.innerHTML = dictionary[key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+      const key = node.getAttribute("data-i18n-placeholder");
+      if (dictionary[key]) node.setAttribute("placeholder", dictionary[key]);
     });
 
     document.querySelectorAll("[data-entry-lang]").forEach((button) => {
@@ -488,6 +577,10 @@
       nav.classList.toggle("entry-nav--map-active", targetId === "map-screen-05");
       nav.classList.toggle("entry-nav--cases-active", targetId === "case-screen-06");
       nav.classList.toggle("entry-nav--partners-active", targetId === "partners-screen-07");
+      nav.classList.toggle("entry-nav--geo-active", targetId === "geo-screen-08");
+      nav.classList.toggle("entry-nav--apply-active", targetId === "apply-screen-09");
+      nav.classList.toggle("entry-nav--loading-active", targetId === "loading-screen-10");
+      nav.classList.toggle("entry-nav--success-active", targetId === "success-screen-11");
     }
 
     document.querySelectorAll("[data-entry-target]").forEach((button) => {
@@ -587,6 +680,86 @@
     setActiveCase(0);
   };
 
+  const setupApplicationFlow = () => {
+    const form = document.getElementById("applyForm");
+    const note = document.getElementById("applyNote");
+    const progressBar = document.getElementById("applyProgressBar");
+    const progressValue = document.getElementById("applyProgressValue");
+    const progressText = document.getElementById("applyProgressText");
+    let progressTimer = 0;
+
+    const t = (key) => {
+      const lang = document.documentElement.lang || getStoredLanguage();
+      return (translations[lang] && translations[lang][key]) || translations.cs[key] || key;
+    };
+
+    const setProgress = (value, text) => {
+      const progress = Math.max(0, Math.min(100, Math.round(value)));
+      if (progressBar) progressBar.style.width = `${progress}%`;
+      if (progressValue) progressValue.textContent = `${progress}%`;
+      if (progressText && text) progressText.textContent = text;
+    };
+
+    const saveLocalRequest = () => {
+      if (!form) return;
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload.language = (document.documentElement.lang || "cs").toUpperCase();
+      payload.page_url = window.location.href;
+      payload.submitted_at = new Date().toISOString();
+      try {
+        window.localStorage.setItem("arakera-last-application", JSON.stringify(payload));
+      } catch {
+        return;
+      }
+    };
+
+    const runLoader = () => {
+      window.clearInterval(progressTimer);
+      const steps = [
+        { limit: 28, text: t("loadingStepCheck") },
+        { limit: 58, text: t("loadingStepStructure") },
+        { limit: 86, text: t("loadingStepRoute") },
+        { limit: 100, text: t("loadingStepFinal") }
+      ];
+      let progress = 3;
+      let stepIndex = 0;
+      setProgress(progress, steps[stepIndex].text);
+      goToScreen("loading-screen-10", "smooth");
+
+      progressTimer = window.setInterval(() => {
+        const target = steps[stepIndex].limit;
+        progress = Math.min(target, progress + Math.max(2, Math.round((target - progress) * 0.2)));
+        setProgress(progress, steps[stepIndex].text);
+        if (progress >= target) {
+          stepIndex += 1;
+          if (stepIndex >= steps.length) {
+            window.clearInterval(progressTimer);
+            setProgress(100, t("loadingStepFinal"));
+            window.setTimeout(() => goToScreen("success-screen-11", "smooth"), 620);
+            return;
+          }
+          progress = Math.min(progress + 3, steps[stepIndex].limit - 1);
+          setProgress(progress, steps[stepIndex].text);
+        }
+      }, 180);
+    };
+
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        saveLocalRequest();
+        if (note) note.textContent = t("applyNoteSending");
+        runLoader();
+      });
+    }
+
+    setProgress(0, t("loadingText"));
+  };
+
   screenConfigs.forEach((config) => {
     const screen = document.querySelector(config.screen);
     if (!screen) return;
@@ -616,6 +789,8 @@
   });
 
   window.addEventListener("hashchange", () => {
+    const targetId = window.location.hash.slice(1);
+    if (targetId && document.getElementById(targetId)) setActiveScreen(targetId);
     window.requestAnimationFrame(alignHashTarget);
   });
 
@@ -637,6 +812,7 @@
     hasInitialized = true;
     setupNavigation();
     setupCaseCarousel();
+    setupApplicationFlow();
     setScreenHeight();
     alignHashTarget();
     window.setTimeout(alignHashTarget, 80);

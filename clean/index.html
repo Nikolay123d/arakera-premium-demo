@@ -11,11 +11,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/entry-bg-reference.jpg">
   <link rel="preload" href="assets/img/entry-bg-reference.jpg?v=screen01-a-apex" as="image" fetchpriority="high">
-  <link rel="preload" href="assets/img/city-bg-clean.jpg?v=screen02-native-12" as="image">
-  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=partners-screen-03" as="image">
-  <link rel="preload" href="assets/img/cases/case-access-control.jpg?v=partners-screen-03" as="image">
-  <link rel="preload" href="assets/img/cases/case-interior-renovation.jpg?v=partners-screen-03" as="image">
-  <link rel="stylesheet" href="assets/css/entry.css?v=partners-screen-03">
+  <link rel="preload" href="assets/img/city-bg-full.jpg?v=final-push-02" as="image">
+  <link rel="preload" href="assets/img/system-bg-clean.jpg?v=final-push-02" as="image">
+  <link rel="preload" href="assets/img/cases/case-access-control-final.jpg?v=final-push-02" as="image">
+  <link rel="preload" href="assets/img/cases/case-interior-renovation.jpg?v=final-push-02" as="image">
+  <link rel="preload" href="assets/img/cases/case-solar-final.jpg?v=final-push-02" as="image">
+  <link rel="preload" href="assets/img/geography-map-clean.jpg?v=final-push-02" as="image">
+  <link rel="stylesheet" href="assets/css/entry.css?v=final-push-02">
 </head>
 <body class="entry-page">
   <nav class="entry-nav" aria-label="ARAKERA screen navigation" aria-expanded="false">
@@ -38,6 +40,10 @@
       <button class="entry-nav__link" type="button" data-entry-target="map-screen-05" data-i18n="navMap">Map</button>
       <button class="entry-nav__link" type="button" data-entry-target="case-screen-06" data-i18n="navCases">Cases</button>
       <button class="entry-nav__link" type="button" data-entry-target="partners-screen-07" data-i18n="navPartners">Partners</button>
+      <button class="entry-nav__link" type="button" data-entry-target="geo-screen-08" data-i18n="navGeo">Geografie</button>
+      <button class="entry-nav__link" type="button" data-entry-target="apply-screen-09" data-i18n="navApply">Dotaz</button>
+      <button class="entry-nav__link" type="button" data-entry-target="loading-screen-10" data-i18n="navLoading">Zpracování</button>
+      <button class="entry-nav__link" type="button" data-entry-target="success-screen-11" data-i18n="navSuccess">Hotovo</button>
     </div>
 
     <div class="entry-nav__dots" aria-label="Screen switcher">
@@ -48,6 +54,10 @@
       <button class="entry-nav__dot" type="button" data-entry-target="map-screen-05" aria-label="Screen 5"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="case-screen-06" aria-label="Screen 6"></button>
       <button class="entry-nav__dot" type="button" data-entry-target="partners-screen-07" aria-label="Screen 7"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="geo-screen-08" aria-label="Screen 8"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="apply-screen-09" aria-label="Screen 9"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="loading-screen-10" aria-label="Screen 10"></button>
+      <button class="entry-nav__dot" type="button" data-entry-target="success-screen-11" aria-label="Screen 11"></button>
     </div>
   </nav>
 
@@ -93,10 +103,10 @@
     <section class="city-screen" id="city-screen-02" aria-label="ARAKERA Group city coordination screen">
       <img
         class="city-screen__background"
-        src="assets/img/city-bg-clean.jpg?v=screen02-native-12"
+        src="assets/img/city-bg-full.jpg?v=final-push-02"
         alt=""
-        width="572"
-        height="1018"
+        width="716"
+        height="1280"
         loading="lazy"
         decoding="async"
       >
@@ -443,7 +453,7 @@
     <section class="case-screen" id="case-screen-06" aria-label="ARAKERA Group project cases">
       <img
         class="case-screen__background"
-        src="assets/img/system-bg-clean.jpg?v=partners-screen-03"
+        src="assets/img/system-bg-clean.jpg?v=final-push-02"
         alt=""
         width="624"
         height="1280"
@@ -456,9 +466,9 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image"
-              src="assets/img/cases/case-access-control.jpg?v=partners-screen-03"
+              src="assets/img/cases/case-access-control-final.jpg?v=final-push-02"
               alt="Access control system project case"
-              width="1004"
+              width="749"
               height="1280"
               loading="eager"
               decoding="async"
@@ -469,7 +479,7 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image"
-              src="assets/img/cases/case-interior-renovation.jpg?v=partners-screen-03"
+              src="assets/img/cases/case-interior-renovation.jpg?v=final-push-02"
               alt="Interior renovation project case"
               width="759"
               height="1280"
@@ -481,9 +491,9 @@
           <article class="case-screen__slide" data-case-slide>
             <img
               class="case-screen__image case-screen__image--solar"
-              src="assets/img/cases/case-solar-reference.jpg?v=partners-screen-03"
+              src="assets/img/cases/case-solar-final.jpg?v=final-push-02"
               alt="Solar power project case"
-              width="573"
+              width="765"
               height="1280"
               loading="lazy"
               decoding="async"
@@ -502,7 +512,7 @@
     <section class="partners-screen" id="partners-screen-07" aria-label="ARAKERA Group partnerships">
       <img
         class="partners-screen__background"
-        src="assets/img/system-bg-clean.jpg?v=partners-screen-03"
+        src="assets/img/system-bg-clean.jpg?v=final-push-02"
         alt=""
         width="624"
         height="1280"
@@ -575,8 +585,129 @@
         </footer>
       </div>
     </section>
+
+    <section class="geo-screen" id="geo-screen-08" aria-label="ARAKERA Group geography">
+      <img
+        class="geo-screen__map"
+        src="assets/img/geography-map-clean.jpg?v=final-push-02"
+        alt=""
+        width="720"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="geo-screen__content">
+        <h2 class="geo-screen__title" data-i18n="geoTitle">GEOGRAFIE PŮSOBNOSTI</h2>
+        <div class="geo-screen__copy">
+          <p data-i18n-html="geoCopy1">Koordinace projektů<br>v centrální Evropě.</p>
+          <p data-i18n-html="geoCopy2">Rozšiřujeme působnost<br>po celé Evropě.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="apply-screen" id="apply-screen-09" aria-label="ARAKERA Group application form">
+      <img
+        class="apply-screen__background"
+        src="assets/img/system-bg-clean.jpg?v=final-push-02"
+        alt=""
+        width="624"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="apply-screen__content">
+        <header class="apply-screen__header">
+          <p class="apply-screen__kicker" data-i18n="applyKicker">PARTNERSKÝ DOTAZ</p>
+          <h2 class="apply-screen__title" data-i18n="applyTitle">VSTUPNÍ FORMULÁŘ ARAKERA</h2>
+          <p class="apply-screen__lead" data-i18n="applyLead">Popište projekt, příležitost nebo zdroj. Systém připraví první směr koordinace.</p>
+          <div class="apply-screen__rule" aria-hidden="true">
+            <span></span><i></i><span></span>
+          </div>
+        </header>
+
+        <form class="apply-screen__form" id="applyForm" autocomplete="on">
+          <input type="hidden" name="source_page" value="arakera-final-clean">
+          <label class="apply-screen__field">
+            <span data-i18n="applyNameLabel">Jméno</span>
+            <input class="apply-screen__input" name="name" type="text" data-i18n-placeholder="applyNamePlaceholder" placeholder="Vaše jméno" required>
+          </label>
+
+          <label class="apply-screen__field">
+            <span data-i18n="applyContactLabel">Kontakt</span>
+            <input class="apply-screen__input" name="contact" type="text" data-i18n-placeholder="applyContactPlaceholder" placeholder="Telefon / e-mail / Messenger" required>
+          </label>
+
+          <label class="apply-screen__field">
+            <span data-i18n="applyProjectLabel">Projekt</span>
+            <input class="apply-screen__input" name="project" type="text" data-i18n-placeholder="applyProjectPlaceholder" placeholder="Projekt / možnost / partnerství" required>
+          </label>
+
+          <label class="apply-screen__field apply-screen__field--message">
+            <span data-i18n="applyMessageLabel">Zadání</span>
+            <textarea class="apply-screen__input apply-screen__textarea" name="message" rows="4" data-i18n-placeholder="applyMessagePlaceholder" placeholder="Co je potřeba strukturovat?"></textarea>
+          </label>
+
+          <button class="apply-screen__submit" type="submit">
+            <span data-i18n="applySubmit">ODESLAT DO SYSTÉMU</span>
+            <span class="apply-screen__submit-arrow" aria-hidden="true">→</span>
+          </button>
+
+          <a class="apply-screen__facebook" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener" data-i18n="applyFacebook">Rychlý kontakt přes Facebook</a>
+          <p class="apply-screen__note" id="applyNote" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="loading-screen" id="loading-screen-10" aria-label="ARAKERA Group application processing">
+      <img
+        class="loading-screen__background"
+        src="assets/img/system-bg-clean.jpg?v=final-push-02"
+        alt=""
+        width="624"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="loading-screen__card">
+        <p class="loading-screen__kicker">ARAKERA GROUP</p>
+        <div class="loading-screen__orbit" aria-hidden="true">
+          <span></span><i></i>
+        </div>
+        <h2 class="loading-screen__title" data-i18n="loadingTitle">ODESÍLÁNÍ ŽÁDOSTI DO SYSTÉMU</h2>
+        <div class="loading-screen__bar" aria-hidden="true"><i id="applyProgressBar"></i></div>
+        <strong class="loading-screen__value" id="applyProgressValue">0%</strong>
+        <p class="loading-screen__text" id="applyProgressText" data-i18n="loadingText">Strukturujeme data projektu...</p>
+      </div>
+    </section>
+
+    <section class="success-screen" id="success-screen-11" aria-label="ARAKERA Group request success">
+      <img
+        class="success-screen__background"
+        src="assets/img/system-bg-clean.jpg?v=final-push-02"
+        alt=""
+        width="624"
+        height="1280"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="success-screen__card">
+        <div class="success-screen__mark" aria-hidden="true">A</div>
+        <p class="success-screen__kicker">ARAKERA GROUP</p>
+        <h2 class="success-screen__title" data-i18n-html="successTitle">ŽÁDOST<br>VSTOUPILA<br>DO SYSTÉMU</h2>
+        <p class="success-screen__copy" data-i18n="successCopy">Systém ARAKERA zpracovává vaši žádost. Ozveme se na uvedený kontakt po zpracování.</p>
+        <div class="success-screen__status" data-i18n="successStatus">Zpracování žádosti je aktivní</div>
+        <div class="success-screen__actions">
+          <a class="success-screen__button success-screen__button--primary" href="https://www.facebook.com/share/19PVxfJMw2/" target="_blank" rel="noopener" data-i18n="successFacebook">Rychlý kontakt přes Facebook</a>
+          <button class="success-screen__button success-screen__button--ghost" type="button" data-entry-target="entry-screen-01" data-i18n="successBack">Zpět na web klienta</button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="assets/js/entry.js?v=partners-screen-03"></script>
+  <script src="assets/js/entry.js?v=final-push-02"></script>
 </body>
 </html>
