@@ -1,68 +1,58 @@
 <!doctype html>
-<html lang="cs" translate="no">
+<html lang="ru" translate="no">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex">
-  <title>ARAKERA draft disabled</title>
+  <title>ARAKERA Group - демо версия не активна</title>
+  <meta name="description" content="Демо версия сайта временно отключена.">
+  <meta property="og:title" content="ARAKERA Group">
+  <meta property="og:description" content="Демо версия сайта временно отключена.">
+  <meta property="og:image" content="assets/images/maintenance/arakera-demo-inactive-ru.jpg">
   <style>
-    html,
-    body {
+    html {
       min-height: 100%;
-      margin: 0;
-      background: #020813;
-      color: #f7f9fc;
-      font-family: Arial, Helvetica, sans-serif;
+      background: #070b13;
     }
 
     body {
+      min-height: 100svh;
+      margin: 0;
       display: grid;
       place-items: center;
-      padding: 24px;
+      overflow: hidden;
+      background: #070b13;
     }
 
-    main {
-      width: min(560px, 100%);
-      text-align: center;
+    .maintenance-screen {
+      width: 100vw;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      background: #070b13;
     }
 
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(28px, 7vw, 48px);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: 0 0 28px;
-      color: rgba(247, 249, 252, 0.78);
-      font-size: 18px;
-      line-height: 1.45;
-    }
-
-    a {
-      display: inline-grid;
-      min-height: 48px;
-      align-items: center;
-      padding: 0 22px;
-      border: 1px solid rgba(191, 255, 115, 0.78);
-      border-radius: 999px;
-      color: #06120c;
-      background: #bfff73;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      text-transform: uppercase;
-      box-shadow: 0 0 22px rgba(191, 255, 115, 0.24);
+    .maintenance-screen__image {
+      display: block;
+      width: 100vw;
+      height: 100svh;
+      object-fit: contain;
+      object-position: center;
+      background: #070b13;
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Draft Disabled</h1>
-    <p>Old ARAKERA demo is disabled. The clean current build is available on the new project link.</p>
-    <a href="./clean/">Open Clean ARAKERA</a>
+  <main class="maintenance-screen" aria-label="ARAKERA Group demo inactive notice">
+    <img
+      class="maintenance-screen__image"
+      src="assets/images/maintenance/arakera-demo-inactive-ru.jpg"
+      alt="Демо версия не активна"
+      width="1280"
+      height="853"
+      fetchpriority="high"
+      decoding="async"
+    >
   </main>
 </body>
 </html>
